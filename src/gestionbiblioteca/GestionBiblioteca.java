@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Ashley Mendoza V
+ * @author Ashley Mendoza Vhola
  */
 public class GestionBiblioteca extends Application {
     
