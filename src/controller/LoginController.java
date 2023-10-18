@@ -4,6 +4,7 @@
  */
 package controller;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +18,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+/*
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;*/
 
 /**
  * FXML Controller class
@@ -59,6 +63,28 @@ public class LoginController implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+       
+       String filePath = "ruta/a/tu/archivo.xlsx";
+
+      /*  try (FileInputStream fileInputStream = new FileInputStream(filePath);
+             Workbook workbook = new XSSFWorkbook(fileInputStream)) {
+
+            // Obtén la primera hoja del libro de trabajo
+            Sheet sheet = workbook.getSheetAt(0);
+
+            // Itera sobre las filas de la hoja
+            for (Row row : sheet) {
+                // Itera sobre las celdas de cada fila
+                for (Cell cell : row) {
+                    // Obtén el contenido de la celda y muestra su valor
+                    System.out.print(cell.toString() + "\t");
+                }
+                System.out.println(); // Nueva línea para cada fila
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
     }
     
 }
