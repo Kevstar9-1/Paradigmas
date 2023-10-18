@@ -59,4 +59,11 @@ public class Equipment implements EquipmentInterface {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    @Override
+    public String toString() {
+        return "Equipment{" + "name=" + name + ", type=" + type + ", available=" + available + ", quantity=" + quantity + '}';
+    }
+    
+    
 }

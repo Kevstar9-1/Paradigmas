@@ -81,4 +81,11 @@ public class Fine {
     public void setComment(String comment) {
         this.comment = comment;
     }
+
+    @Override
+    public String toString() {
+        return "Fine{" + "amount=" + amount + ", user=" + user + ", fineDate=" + fineDate + ", paymentDate=" + paymentDate + ", dueDate=" + dueDate + ", comment=" + comment + '}';
+    }
+    
+    
 }

@@ -1,5 +1,10 @@
 import java.util.List;
 
+/**
+ * 
+ * @author Ashley Mendoza V
+ */
+
 public class Library {
 
     private List<Book> books;
@@ -45,6 +50,13 @@ public class Library {
     public void setEquipment(List<Equipment> equipment) {
         this.equipment = equipment;
     }
+
+    @Override
+    public String toString() {
+        return "Library{" + "books=" + books + ", loans=" + loans + ", equipment=" + equipment + '}';
+    }
+    
+    
 
     /**
      * Registers a book in the library.

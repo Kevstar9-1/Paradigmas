@@ -150,4 +150,11 @@ public class Loan implements BookInterface, EquipmentInterface {
     public void setType(String type) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public String toString() {
+        return "Loan{" + "book=" + book + ", user=" + user + ", loanDate=" + loanDate + ", returnDate=" + returnDate + ", status=" + status + ", equipment=" + equipment + '}';
+    }
+    
+    
 }

@@ -88,4 +88,12 @@ public class Book implements BookInterface {
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" + "title=" + title + ", author=" + author + ", genre=" + genre + ", available=" + available + ", categories=" + categories + ", publisher=" + publisher + ", reviews=" + reviews + '}';
+    }
+    
+    
+    
 }
