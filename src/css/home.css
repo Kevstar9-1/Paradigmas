@@ -1,0 +1,9 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+/* home.css */
+
+.mainFxmlClass {
+    -fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #5ED4F5, #F0F0F0 );
+}

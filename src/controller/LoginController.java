@@ -45,11 +45,11 @@ public class LoginController implements Initializable {
     @FXML
     private void onRegistrar(ActionEvent event)  {
        try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/addBook.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/user.fxml"));
                 Parent root = loader.load();
 
                 Stage stage = new Stage();
-                stage.setTitle("Agregar libro");
+                stage.setTitle("Agregar usuario");
                 stage.setScene(new Scene(root));
                 stage.show();
 
