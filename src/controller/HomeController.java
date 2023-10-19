@@ -6,7 +6,9 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 /**
  * FXML Controller class
@@ -14,6 +16,15 @@ import javafx.fxml.Initializable;
  * @author Adria
  */
 public class HomeController implements Initializable {
+
+    @FXML
+    private Button btn_register;
+    @FXML
+    private Button btn_registerEquipment;
+    @FXML
+    private Button btn_bookLoan;
+    @FXML
+    private Button btn_bookSearch;
 
     /**
      * Initializes the controller class.

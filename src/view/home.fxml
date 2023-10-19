@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="943.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="943.0" style="-fx-background-color: #fff;" styleClass="d" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
     <children>
-        <Pane prefHeight="234.0" prefWidth="943.0" style="-fx-background-color: #2D75E8;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Pane prefHeight="166.0" prefWidth="943.0" style="-fx-background-color: #059ad1;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Label layoutX="130.0" layoutY="44.0" text="Gestor de biblioteca" textFill="WHITE">
                     <font>
@@ -19,13 +24,42 @@
                         <Font size="13.0" />
                     </font>
                 </Label>
-                <Label layoutX="48.0" layoutY="43.0" style="-fx-font-size: 60; -fx-fill: WHITE;" text="⚙" />
+            <ImageView fitHeight="58.0" fitWidth="55.0" layoutX="62.0" layoutY="54.0">
+               <image>
+                  <Image url="@../../../../../../Downloads/libro.png" />
+               </image>
+            </ImageView>
             </children>
         </Pane>
-      <Label layoutX="354.0" layoutY="309.0" text="Bienvenido!">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
+
+        <Label layoutX="433.0" layoutY="333.0" text="Bienvenido!">
+            <font>
+                <Font size="40.0" />
+            </font>
+        </Label>
+      <VBox layoutY="166.0" prefHeight="451.0" prefWidth="236.0" spacing="15.0" style="-fx-background-color: #D4D4D4;" AnchorPane.bottomAnchor="0.8000000000000114" AnchorPane.topAnchor="166.00000000000006">
+         <children>
+                <Button id="btn_register" fx:id="btn_register" prefWidth="280.0" styleClass="btn_register" stylesheets="@../css/home.css" text="Registrar libro">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="100.0" />
+               </VBox.margin>
+            </Button>
+                <Button id="btn_registerEquipment" fx:id="btn_registerEquipment" prefWidth="280.0" styleClass="btn_registerEquipment" stylesheets="@../css/home.css" text="Registrar equipo">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+                <Button id="btn_bookLoan" fx:id="btn_bookLoan" prefWidth="280" styleClass="btn_bookLoan" stylesheets="@../css/home.css" text="Prestamo de libro">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+                <Button id="btn_bookSearch" fx:id="btn_bookSearch" prefWidth="280" styleClass="btn_bookSearch" stylesheets="@../css/home.css" text="Busqueda de libro">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
     </children>
 </AnchorPane>

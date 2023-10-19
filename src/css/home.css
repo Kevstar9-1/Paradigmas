@@ -7,3 +7,43 @@
 .mainFxmlClass {
     -fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #5ED4F5, #F0F0F0 );
 }
+.btn_register{
+    -fx-background-color: #445760; 
+    -fx-text-fill: #fff; 
+    -fx-border-color: #2980b9; 
+    -fx-border-width: 1px; 
+    -fx-border-radius: 3px;
+    -fx-font-size: 14px; 
+    -fx-text-transform: uppercase; 
+    -fx-cursor: hand; 
+}
+.btn_bookSearch{
+   -fx-background-color: #445760; 
+    -fx-text-fill: #fff; 
+    -fx-border-color: #2980b9; 
+    -fx-border-width: 1px; 
+    -fx-border-radius: 3px;
+    -fx-font-size: 14px; 
+    -fx-text-transform: uppercase; 
+    -fx-cursor: hand; 
+}
+.btn_bookLoan{
+    -fx-background-color: #445760; 
+    -fx-text-fill: #fff; 
+    -fx-border-color: #2980b9; 
+    -fx-border-width: 1px; 
+    -fx-border-radius: 3px;
+    -fx-font-size: 14px; 
+    -fx-text-transform: uppercase; 
+    -fx-cursor: hand; 
+}
+.btn_registerEquipment{
+    -fx-background-color: #445760; 
+    -fx-text-fill: #fff; 
+    -fx-border-color: #2980b9; 
+    -fx-border-width: 1px; 
+    -fx-border-radius: 3px;
+    -fx-font-size: 14px; 
+    -fx-text-transform: uppercase; 
+    -fx-cursor: hand; 
+}
