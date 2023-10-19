@@ -56,7 +56,7 @@ public class LoginController implements Initializable {
         if (validarCredenciales(username, password)) {
             mostrarAlerta(AlertType.INFORMATION, "Inicio de sesión exitoso", "¡Bienvenido, " + username + "!");
 
-            // Cambiar a la pantalla "home.fxml"
+            // Redirigir a la pantalla "home.fxml"
             cambiarAPantallaHome(event);
         } else {
             mostrarAlerta(AlertType.ERROR, "Error de inicio de sesión", "Credenciales incorrectas.");
