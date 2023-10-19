@@ -4,7 +4,6 @@
  */
 package controller;
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -43,7 +42,7 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void onLogin(ActionEvent event) {
@@ -56,8 +55,6 @@ public class LoginController implements Initializable {
         } else {
             mostrarAlerta(AlertType.ERROR, "Error de inicio de sesión", "Credenciales incorrectas.");
         }
-        
-        
     }
     
     private void mostrarAlerta(AlertType tipo, String titulo, String contenido) {
@@ -68,11 +65,10 @@ public class LoginController implements Initializable {
         alert.showAndWait();
     }
 
-   
-   private boolean validarCredenciales(String username, String password) {
+    private boolean validarCredenciales(String username, String password) {
         String rutaArchivo = "C:\\Documentos\\PARADIGMAS DE PROGRAMACION\\Base de datos para proyecto#2\\usuarios.txt";
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(rutaArchivo))) {
+        try ( BufferedReader reader = new BufferedReader(new FileReader(rutaArchivo))) {
             String linea;
             while ((linea = reader.readLine()) != null) {
                 StringTokenizer tokenizer = new StringTokenizer(linea, ", ");
@@ -92,51 +88,24 @@ public class LoginController implements Initializable {
 
         return false; // Credenciales no encontradas o inválidas
     }
-   
-   
-        
 
     @FXML
-    private void onRegistrar(ActionEvent event)  {
-       try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/user.fxml"));
-                Parent root = loader.load();
+    private void onRegistrar(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/user.fxml"));
+            Parent root = loader.load();
 
-                Stage stage = new Stage();
+            Stage stage = new Stage();
+            stage.setTitle("Registro de usuarios");
+            stage.setScene(new Scene(root));
+            stage.show();
 
-                stage.setTitle("Agregar usuario");
-
-                stage.setTitle("Registro de usuarios");
-                stage.setScene(new Scene(root));
-                stage.show();
-                Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                loginStage.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-       
-       String filePath = "ruta/a/tu/archivo.xlsx";
-
-      /*  try (FileInputStream fileInputStream = new FileInputStream(filePath);
-             Workbook workbook = new XSSFWorkbook(fileInputStream)) {
-
-            // Obtén la primera hoja del libro de trabajo
-            Sheet sheet = workbook.getSheetAt(0);
-
-            // Itera sobre las filas de la hoja
-            for (Row row : sheet) {
-                // Itera sobre las celdas de cada fila
-                for (Cell cell : row) {
-                    // Obtén el contenido de la celda y muestra su valor
-                    System.out.print(cell.toString() + "\t");
-                }
-                System.out.println(); // Nueva línea para cada fila
-            }
+            Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            loginStage.close();
 
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
     }
-    
-    
+
 }

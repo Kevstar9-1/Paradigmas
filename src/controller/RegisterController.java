@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+
 /**
  * FXML Controller class
  *
@@ -41,7 +42,7 @@ public class RegisterController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void onRegistrar(ActionEvent event) {
@@ -52,7 +53,6 @@ public class RegisterController implements Initializable {
         String password = tf_password.getText();
 
         // Validación de datos (puedes agregar tu lógica de validación aquí)
-
         if (!nombre.isEmpty() && !apellidos.isEmpty() && !username.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
             // Luego, guarda los datos en un archivo .txt
             guardarUsuarioEnArchivo(nombre, apellidos, username, email, password);
@@ -60,10 +60,10 @@ public class RegisterController implements Initializable {
             // Mostrar mensaje de error al usuario si falta información
         }
     }
-    
+
     private void guardarUsuarioEnArchivo(String nombre, String apellidos, String username, String email, String password) {
         String rutaArchivo = "C:\\Documentos\\PARADIGMAS DE PROGRAMACION\\Base de datos para proyecto#2\\usuarios.txt";
-        
+
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(rutaArchivo, true));
             writer.write(nombre + ", " + apellidos + ", " + username + ", " + email + ", " + password);
@@ -74,5 +74,5 @@ public class RegisterController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+
 }
