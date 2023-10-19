@@ -34,10 +34,6 @@
                            <font>
                               <Font name="Georgia Bold" size="13.0" />
                            </font></Label>
-                        <TextField fx:id="idBook" promptText="ID Libro">
-                           <font>
-                              <Font name="Georgia" size="12.0" />
-                           </font></TextField>
                         <TextField fx:id="bookTitle" promptText="Titulo del libro">
                            <font>
                               <Font name="Georgia" size="12.0" />
@@ -62,6 +58,10 @@
                               <Font name="Georgia" size="12.0" />
                            </font>
                         </TextField>
+                        <TextField fx:id="urlBook" promptText="URL Del Libro">
+                           <font>
+                              <Font name="Georgia" size="12.0" />
+                           </font></TextField>
                      </children>
                      <HBox.margin>
                         <Insets left="5.0" />

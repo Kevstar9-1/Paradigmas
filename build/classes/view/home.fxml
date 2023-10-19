@@ -104,7 +104,7 @@
       </VBox>
       <ImageView fitHeight="128.0" fitWidth="127.0" layoutX="514.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Downloads/biblioteca.png" />
+            <Image url="@../images/biblioteca.png" />
          </image>
       </ImageView>
     </children>

@@ -4,8 +4,16 @@
  */
 package controller;
 
+
 import java.io.IOException;
+
+import Book.Book;
+import DB.conexionDB;
+
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -29,8 +37,6 @@ public class addBookController implements Initializable {
     @FXML
     private TextField bookTitle;
     @FXML
-    private TextField idBook;
-    @FXML
     private TextField genreBook;
     @FXML
     private TextField categorieBook;
@@ -38,46 +44,91 @@ public class addBookController implements Initializable {
     private TextField publisherBook;
     @FXML
     private TextField authorBook;
+    @FXML
+    private TextField urlBook;
+    Book book;
 
-    
+    conexionDB DB_Connection = conexionDB.getconnector();
+    Connection connection = DB_Connection.getConn();
+
     private Boolean isInEditMode = Boolean.FALSE;
+    
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void Register(ActionEvent event) {
-        String bookID = idBook.getText();
+        String bookID = urlBook.getText();
         String bookAuthor = authorBook.getText();
         String bookName = bookTitle.getText();
         String bookPublisher = publisherBook.getText();
-        
+
         if (bookID.isEmpty() || bookAuthor.isEmpty() || bookName.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Insufficient Data");
-        alert.setHeaderText(null);
-        alert.setContentText("Please enter data in all fields.");
-        alert.showAndWait();
-        return;
+            alert.setTitle("Insufficient Data");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter data in all fields.");
+            alert.showAndWait();
+            return;
         }
 
         if (isInEditMode) {
-            
+
             return;
+        }
+
+        DBSaveBook();
+        clearEntries();
+    }
+
+    private void clearEntries() {
+        bookTitle.clear();
+        urlBook.clear();
+        authorBook.clear();
+        publisherBook.clear();
+        genreBook.clear();
+        categorieBook.clear();
+    }
+
+    
+
+    public void DBSaveBook() {
+        book = new Book(bookTitle.getText(), authorBook.getText(), genreBook.getText(), categorieBook.getText(),
+                publisherBook.getText(), urlBook.getText());
+        int rows = 0;
+        
+        try {
+            String insertQuery = "INSERT INTO books (title, author, genre, "
+                    + "available, categories, publisher, url) VALUES (?, ?, ?, ?, ?, ?,?)";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
+            preparedStatement.setString(1, book.getTitle());
+            preparedStatement.setString(2, book.getAuthor());
+            preparedStatement.setString(3, book.getGenre());
+            preparedStatement.setString(4, "T");
+            preparedStatement.setString(5, book.getCategories());
+
+           
+                preparedStatement.setString(6, book.getPublisher());
+                preparedStatement.setString(7, book.getUrl());
+
+                rows = preparedStatement.executeUpdate();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println("Error al insertar datos.");
+            e.printStackTrace();
         }
         
     }
+
     
-    private void clearEntries() {
-        bookTitle.clear();
-        idBook.clear();
-        authorBook.clear();
-        publisherBook.clear();
-    }
+
 
     @FXML
     private void onRegresar(ActionEvent event) {
@@ -96,3 +147,4 @@ public class addBookController implements Initializable {
     }
     
 }
+
