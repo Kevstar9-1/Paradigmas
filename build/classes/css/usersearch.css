@@ -2,6 +2,14 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
+.tf_user{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #08678C transparent ;
+    -fx-border-width: 2px;
+}
 
+.btn_userSearch{
+    -fx-background-color: #445760;
+    -fx-border-color: transparent transparent #08678C transparent ;
+    -fx-border-width: 2px;
 }

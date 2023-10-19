@@ -26,7 +26,7 @@
                 </Label>
             <ImageView fitHeight="58.0" fitWidth="55.0" layoutX="62.0" layoutY="54.0">
                <image>
-                  <Image url="@../../../../../../Downloads/libro.png" />
+                  <Image url="@../images/libro.png" />
                </image>
             </ImageView>
             <Button id="btn_exitSession" fx:id="btn_exitSession" layoutX="789.0" layoutY="31.0" mnemonicParsing="false" onAction="#btn_exitSession" styleClass="btn_exitSession" stylesheets="@../css/home.css" text="Cerrar sesión" />
@@ -47,7 +47,7 @@
                <graphic>
                   <ImageView fitHeight="31.0" fitWidth="28.0">
                      <image>
-                        <Image url="@../../../../../../Downloads/registro.png" />
+                        <Image url="@../images/registro.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -59,7 +59,7 @@
                <graphic>
                   <ImageView fitHeight="31.0" fitWidth="28.0">
                      <image>
-                        <Image url="@../../../../../../Downloads/equipo.png" />
+                        <Image url="@../images/equipo.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -71,7 +71,7 @@
                <graphic>
                   <ImageView fitHeight="31.0" fitWidth="28.0">
                      <image>
-                        <Image url="@../../../../../../Downloads/prestamo.png" />
+                        <Image url="@../images/prestamo.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -83,7 +83,7 @@
                <graphic>
                   <ImageView fitHeight="31.0" fitWidth="28.0">
                      <image>
-                        <Image url="@../../../../../../Downloads/busqueda.png" />
+                        <Image url="@../images/busqueda.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -92,7 +92,7 @@
                <graphic>
                   <ImageView fitHeight="31.0" fitWidth="28.0">
                      <image>
-                        <Image url="@../../../../../../Downloads/usuario.png" />
+                        <Image url="@../images/usuario.png" />
                      </image>
                   </ImageView>
                </graphic>

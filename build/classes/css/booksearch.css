@@ -2,6 +2,33 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
-
+.tf_titleBook{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #08678C transparent ;
+    -fx-border-width: 2px;
+}
+.tf_bookAuthor{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #08678C transparent ;
+    -fx-border-width: 2px;
+}
+.tf_publisher{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #08678C transparent ;
+    -fx-border-width: 2px;
+}
+.tf_category{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #08678C transparent ;
+    -fx-border-width: 2px;
+}
+.tf_bookGenre{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #08678C transparent ;
+    -fx-border-width: 2px;
+}
+.btn_bookSearch{
+    -fx-background-color: #445760;
+    -fx-border-color: transparent transparent #08678C transparent ;
+    -fx-border-width: 2px;
 }
