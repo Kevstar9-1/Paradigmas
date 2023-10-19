@@ -41,6 +41,8 @@ public class RegisterController implements Initializable {
     private PasswordField tf_password;
     @FXML
     private PasswordField tf_repassword;
+    @FXML
+    private TextField tf_cedula;
 
     /**
      * Initializes the controller class.
@@ -57,8 +59,9 @@ public class RegisterController implements Initializable {
         String username = tf_username.getText();
         String email = tf_email.getText();
         String password = tf_password.getText();
+        String repassword = tf_repassword.getText();
 
-        if (validarDatos(nombre, apellidos, username, email, password)) {
+        if (validarDatos(nombre, apellidos, username, email, password) && password.equals(repassword)) {
             guardarUsuarioEnArchivo(nombre, apellidos, username, email, password);
             mostrarAlerta(AlertType.INFORMATION, "Registro exitoso", "Los datos se han guardado con éxito.");
 
@@ -68,6 +71,8 @@ public class RegisterController implements Initializable {
 
             // Abrir una nueva ventana de inicio de sesión
             abrirVentanaInicioSesion();
+        } else if (!password.equals(repassword)) {
+            mostrarAlerta(AlertType.ERROR, "Error en el registro", "Las contraseñas no coinciden. Por favor, inténtelo de nuevo.");
         } else {
             mostrarAlerta(AlertType.ERROR, "Error en el registro", "Por favor, complete todos los campos.");
         }
@@ -123,7 +128,7 @@ public class RegisterController implements Initializable {
 
     @FXML
     private void onRegresar(ActionEvent event) {
-         try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
             Parent root = loader.load();
 
@@ -139,5 +144,6 @@ public class RegisterController implements Initializable {
             e.printStackTrace();
         }
     }
+
 
 }
