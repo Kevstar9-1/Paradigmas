@@ -43,6 +43,11 @@
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font></TextField>
+                        <TextField fx:id="tf_cedula" promptText="Cedula" styleClass="registro" stylesheets="@css/administrador.css">
+                           <font>
+                              <Font name="Georgia" size="12.0" />
+                           </font>
+                        </TextField>
                      </children>
                      <HBox.margin>
                         <Insets right="25.0" />

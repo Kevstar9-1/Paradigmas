@@ -53,10 +53,10 @@ public class LoginController implements Initializable {
         String username = tf_username.getText();
         String password = tf_password.getText();
 
-        if (validarCredenciales(username, password)) {
+        if (username.isEmpty() || password.isEmpty()) {
+            mostrarAlerta(AlertType.ERROR, "Error de inicio de sesión", "Por favor, complete todos los campos.");
+        } else if (validarCredenciales(username, password)) {
             mostrarAlerta(AlertType.INFORMATION, "Inicio de sesión exitoso", "¡Bienvenido, " + username + "!");
-
-            // Redirigir a la pantalla "home.fxml"
             cambiarAPantallaHome(event);
         } else {
             mostrarAlerta(AlertType.ERROR, "Error de inicio de sesión", "Credenciales incorrectas.");
