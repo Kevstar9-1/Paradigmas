@@ -14,7 +14,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -52,13 +58,53 @@ public class RegisterController implements Initializable {
         String email = tf_email.getText();
         String password = tf_password.getText();
 
-        // Validación de datos (puedes agregar tu lógica de validación aquí)
-        if (!nombre.isEmpty() && !apellidos.isEmpty() && !username.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
-            // Luego, guarda los datos en un archivo .txt
+        if (validarDatos(nombre, apellidos, username, email, password)) {
             guardarUsuarioEnArchivo(nombre, apellidos, username, email, password);
+            mostrarAlerta(AlertType.INFORMATION, "Registro exitoso", "Los datos se han guardado con éxito.");
+
+            // Cerrar la ventana actual
+            Stage stage = (Stage) tf_nombre.getScene().getWindow();
+            stage.close();
+
+            // Abrir una nueva ventana de inicio de sesión
+            abrirVentanaInicioSesion();
         } else {
-            // Mostrar mensaje de error al usuario si falta información
+            mostrarAlerta(AlertType.ERROR, "Error en el registro", "Por favor, complete todos los campos.");
         }
+
+        tf_nombre.clear();
+        tf_apellidos.clear();
+        tf_username.clear();
+        tf_email.clear();
+        tf_password.clear();
+        tf_repassword.clear();
+    }
+
+    private void abrirVentanaInicioSesion() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            Stage stage = new Stage();
+            stage.setTitle("Inicio de Sesión");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void mostrarAlerta(AlertType tipo, String titulo, String contenido) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(contenido);
+        alert.showAndWait();
+    }
+
+    private boolean validarDatos(String nombre, String apellidos, String username, String email, String password) {
+        return !nombre.isEmpty() && !apellidos.isEmpty() && !username.isEmpty() && !email.isEmpty() && !password.isEmpty();
     }
 
     private void guardarUsuarioEnArchivo(String nombre, String apellidos, String username, String email, String password) {
@@ -71,6 +117,25 @@ public class RegisterController implements Initializable {
             writer.close();
         } catch (IOException e) {
             // Manejo de excepciones si ocurre algún error al guardar en el archivo
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void onRegresar(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Inicio de Sesión");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            loginStage.close();
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
