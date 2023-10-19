@@ -33,14 +33,14 @@
             </children>
         </Pane>
 
-        <Label layoutX="304.0" layoutY="300.0" prefHeight="40.0" prefWidth="630.0" text="¡Bienvenido al Sistema de Gestión de Biblioteca! " textAlignment="CENTER">
+        <Label layoutX="306.0" layoutY="309.0" prefHeight="40.0" prefWidth="630.0" text="¡Bienvenido al Sistema de Gestión de Biblioteca! " textAlignment="CENTER">
             <font>
                 <Font size="28.0" />
             </font>
         </Label>
       <VBox layoutY="166.0" prefHeight="451.0" prefWidth="236.0" spacing="15.0" style="-fx-background-color: #D4D4D4;" AnchorPane.bottomAnchor="0.8000000000000114" AnchorPane.topAnchor="166.00000000000006">
          <children>
-                <Button id="btn_register" fx:id="btn_register" prefWidth="280.0" styleClass="btn_register" stylesheets="@../css/home.css" text="Registrar libro">
+                <Button id="btn_register" fx:id="btn_register" onAction="#onBookRegister" prefWidth="280.0" styleClass="btn_register" stylesheets="@../css/home.css" text="Registrar libro">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" top="50.0" />
                </VBox.margin>
@@ -52,7 +52,7 @@
                   </ImageView>
                </graphic>
             </Button>
-                <Button id="btn_registerEquipment" fx:id="btn_registerEquipment" prefWidth="280.0" styleClass="btn_registerEquipment" stylesheets="@../css/home.css" text="Registrar equipo">
+                <Button id="btn_registerEquipment" fx:id="btn_registerEquipment" onAction="#onEquipmentRegister" prefWidth="280.0" styleClass="btn_registerEquipment" stylesheets="@../css/home.css" text="Registrar equipo">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" top="10.0" />
                </VBox.margin>
@@ -64,7 +64,7 @@
                   </ImageView>
                </graphic>
             </Button>
-                <Button id="btn_bookLoan" fx:id="btn_bookLoan" prefWidth="280" styleClass="btn_bookLoan" stylesheets="@../css/home.css" text="Prestamo de libro">
+                <Button id="btn_bookLoan" fx:id="btn_bookLoan" onAction="#onBookLoan" prefWidth="280" styleClass="btn_bookLoan" stylesheets="@../css/home.css" text="Prestamo de libro">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" top="10.0" />
                </VBox.margin>
@@ -76,7 +76,7 @@
                   </ImageView>
                </graphic>
             </Button>
-                <Button id="btn_bookSearch" fx:id="btn_bookSearch" prefWidth="280" styleClass="btn_bookSearch" stylesheets="@../css/home.css" text="Búsqueda de libro">
+                <Button id="btn_bookSearch" fx:id="btn_bookSearch" onAction="#onSearchBook" prefWidth="280" styleClass="btn_bookSearch" stylesheets="@../css/home.css" text="Búsqueda de libro">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" top="10.0" />
                </VBox.margin>
@@ -88,7 +88,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button id="btn_userSearch" fx:id="btn_bookLoan1" prefWidth="280" styleClass="btn_userSearch" stylesheets="@../css/home.css" text="Búsqueda de usuario">
+            <Button id="btn_userSearch" fx:id="btn_SearchUser" onAction="#onSearchUser" prefWidth="280" styleClass="btn_userSearch" stylesheets="@../css/home.css" text="Búsqueda de usuario">
                <graphic>
                   <ImageView fitHeight="31.0" fitWidth="28.0">
                      <image>

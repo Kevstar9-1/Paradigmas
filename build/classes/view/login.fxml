@@ -61,7 +61,7 @@
    <left>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="300.0" spacing="2.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="177.0" text="Gestor de Biblioteca" textFill="#006aff">
+            <Label alignment="CENTER" layoutX="10.0" layoutY="177.0" text="Gestor de Biblioteca" textFill="#445760">
                <font>
                   <Font name="Georgia Bold" size="24.0" />
                </font>

@@ -35,7 +35,7 @@ public class HomeController implements Initializable {
     @FXML
     private Button btn_exitSession;
     @FXML
-    private Button btn_bookLoan1;
+    private Button btn_SearchUser;
 
     /**
      * Initializes the controller class.
@@ -53,6 +53,101 @@ public class HomeController implements Initializable {
 
             Stage stage = new Stage();
             stage.setTitle("Inicio de Sesión");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            loginStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void onBookRegister(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/addBook.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Registro de libros");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            loginStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void onEquipmentRegister(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/addEquipment.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Registro de equipos");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            loginStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void onBookLoan(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(""));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            loginStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void onSearchBook(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/bookSearch.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Busqueda de libros");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            loginStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void onSearchUser(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/userSearch.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Busqueda de usuarios");
             stage.setScene(new Scene(root));
             stage.show();
 
