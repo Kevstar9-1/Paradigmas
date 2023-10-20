@@ -28,6 +28,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.fxml.FXML;
+import javafx.event.ActionEvent;
 
 /**
  * FXML Controller class
@@ -70,11 +74,10 @@ public class BookSearchController implements Initializable {
     private Button btn_GenreSearch;
     @FXML
     private Button btn_categorySearch;
-    
+
     Book book;
     conexionDB DB_Connection = conexionDB.getconnector();
     Connection connection = DB_Connection.getConn();
-    
 
     /**
      * Initializes the controller class.
@@ -183,7 +186,7 @@ public class BookSearchController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+
     public void DBSearchGenre(String genreBook) {
 
         try {
@@ -215,7 +218,7 @@ public class BookSearchController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+
     public void DBSearchCategory(String categoryBook) {
 
         try {
@@ -244,6 +247,7 @@ public class BookSearchController implements Initializable {
             preparedStatement.close();
         } catch (SQLException e) {
             System.out.println("Error al buscar libros.");
+            showAlert("Dato no existe", "El dato ingresado no existe.");
             e.printStackTrace();
         }
     }
@@ -267,32 +271,73 @@ public class BookSearchController implements Initializable {
     @FXML
     private void onTitleSearch(ActionEvent event) {
         String bookTitle = tf_titleBook.getText();
-        //alerta pero solo de titulo
-        DBSearchTitle(bookTitle);
+        if (isFieldEmpty(bookTitle)) {
+            showAlert("Error de busqueda", "Por favor ingrese un titulo antes de buscar.");
+        } else {
+            DBSearchTitle(bookTitle);
+        }
+        
+        tf_titleBook.clear();
     }
 
     @FXML
     private void onAuthorSearch(ActionEvent event) {
-         String bookAuthor = tf_bookAuthor.getText();
-         DBSearchAuthor(bookAuthor);
+        String bookAuthor = tf_bookAuthor.getText();
+        if (isFieldEmpty(bookAuthor)) {
+            showAlert("Error de busqueda", "Por favor ingrese un autor antes de buscar.");
+        } else {
+            DBSearchAuthor(bookAuthor);
+        }
+        
+        tf_bookAuthor.clear();
     }
 
     @FXML
     private void onPubliserSearch(ActionEvent event) {
         String bookPublisher = tf_publisher.getText();
-        DBSearchPublisher(bookPublisher);
+        if (isFieldEmpty(bookPublisher)) {
+            showAlert("Error de busqueda", "Por favor ingrese un Editorial antes de buscar.");
+        } else {
+            DBSearchPublisher(bookPublisher);
+        }
+        
+        tf_publisher.clear();
     }
 
     @FXML
     private void onGenreearch(ActionEvent event) {
         String bookGenre = tf_bookGenre.getText();
-        DBSearchGenre(bookGenre);
+        if (isFieldEmpty(bookGenre)) {
+            showAlert("Error de busqueda", "Por favor ingrese un género antes de buscar.");
+        } else {
+            DBSearchGenre(bookGenre);
+        }
+        
+        tf_bookGenre.clear();
     }
 
     @FXML
     private void onCategorySearch(ActionEvent event) {
         String bookCategory = tf_category1.getText();
-        DBSearchCategory(bookCategory);
+        if (isFieldEmpty(bookCategory)) {
+            showAlert("Error de busqueda", "Por favor ingrese una categoría antes de buscar.");
+        } else {
+            DBSearchCategory(bookCategory);
+        }
+        
+        tf_category1.clear();
+    }
+
+    private boolean isFieldEmpty(String text) {
+        return text.isEmpty();
+    }
+
+    private void showAlert(String title, String content) {
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 
 }

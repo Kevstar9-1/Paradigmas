@@ -29,11 +29,19 @@ public class HomeController implements Initializable {
     @FXML
     private Button btn_exitSession;
     @FXML
-    private TableView<?> tb_userLoan;
+    private Button btn_register;
     @FXML
-    private TableColumn<?, ?> tc_userLoan;
+    private Button btn_registerEquipment;
     @FXML
-    private TableColumn<?, ?> tc_fineLoan;
+    private Button btn_bookLoan;
+    @FXML
+    private Button btn_equipmentLoan;
+    @FXML
+    private Button btn_bookSearch;
+    @FXML
+    private Button btn_Fine;
+    @FXML
+    private Button btn_SearchUser;
 
     /**
      * Initializes the controller class.
@@ -41,11 +49,11 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void btn_exitSession(ActionEvent event) {
-         try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
             Parent root = loader.load();
 
@@ -62,6 +70,7 @@ public class HomeController implements Initializable {
         }
     }
 
+    @FXML
     private void onBookRegister(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/addBook.fxml"));
@@ -80,8 +89,9 @@ public class HomeController implements Initializable {
         }
     }
 
+    @FXML
     private void onEquipmentRegister(ActionEvent event) {
-         try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/addEquipment.fxml"));
             Parent root = loader.load();
 
@@ -98,13 +108,14 @@ public class HomeController implements Initializable {
         }
     }
 
+    @FXML
     private void onBookLoan(ActionEvent event) {
-         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(""));
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/loanBooks.fxml"));
             Parent root = loader.load();
 
             Stage stage = new Stage();
-            stage.setTitle("");
+            stage.setTitle("Préstamo de libros");
             stage.setScene(new Scene(root));
             stage.show();
 
@@ -116,8 +127,9 @@ public class HomeController implements Initializable {
         }
     }
 
+    @FXML
     private void onSearchBook(ActionEvent event) {
-         try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/bookSearch.fxml"));
             Parent root = loader.load();
 
@@ -134,8 +146,9 @@ public class HomeController implements Initializable {
         }
     }
 
+    @FXML
     private void onSearchUser(ActionEvent event) {
-         try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/userSearch.fxml"));
             Parent root = loader.load();
 
@@ -152,5 +165,42 @@ public class HomeController implements Initializable {
         }
     }
 
-    
+    @FXML
+    private void onEquipmentLoan(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/loanEquipment.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Préstamo de equipo");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            loginStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void onFine(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fine.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Multas");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            loginStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

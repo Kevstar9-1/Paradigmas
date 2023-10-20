@@ -4,10 +4,15 @@
  */
 package controller;
 
+import DB.conexionDB;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.StringTokenizer;
 import javafx.event.ActionEvent;
@@ -39,6 +44,9 @@ public class LoginController implements Initializable {
     private TextField tf_username;
     @FXML
     private PasswordField tf_password;
+
+    conexionDB DB_Connection = conexionDB.getconnector();
+    Connection connection = DB_Connection.getConn();
 
     /**
      * Initializes the controller class.
@@ -89,27 +97,23 @@ public class LoginController implements Initializable {
     }
 
     private boolean validarCredenciales(String username, String password) {
-        String rutaArchivo = "C:\\Users\\Adria\\OneDrive\\Documentos\\usuarios.txt";
 
-        try ( BufferedReader reader = new BufferedReader(new FileReader(rutaArchivo))) {
-            String linea;
-            while ((linea = reader.readLine()) != null) {
-                StringTokenizer tokenizer = new StringTokenizer(linea, ", ");
-                String nombre = tokenizer.nextToken().trim();
-                String apellidos = tokenizer.nextToken().trim();
-                String usuario = tokenizer.nextToken().trim();
-                String email = tokenizer.nextToken().trim();
-                String contraseña = tokenizer.nextToken().trim();
+        try {
+            String selectQuery = "SELECT * FROM persons WHERE userName = ? AND pass = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
 
-                if (usuario.equals(username) && contraseña.equals(password)) {
-                    return true; // Credenciales válidas
-                }
-            }
-        } catch (IOException e) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            // Si la consulta devuelve algún resultado, significa que el usuario y la contraseña existen en la base de datos.
+            return resultSet.next();
+        } catch (SQLException e) {
+            System.out.println("Error al realizar la consulta en la base de datos.");
             e.printStackTrace();
         }
 
-        return false; // Credenciales no encontradas o inválidas
+        return false;
     }
 
     @FXML

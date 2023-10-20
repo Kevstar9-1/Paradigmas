@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" style="-fx-background-color: #E8E8E8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddFineController">
+<VBox alignment="CENTER" style="-fx-background-color: #E8E8E8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoanBooksController">
    <children>
       <VBox alignment="CENTER" spacing="10.0">
          <padding>
@@ -21,7 +21,7 @@
                   <VBox alignment="CENTER" spacing="10.0" />
                </children>
             </HBox>
-            <Label text="Crear multa" textFill="#08678c">
+            <Label text="Préstamo de libro" textFill="#08678c">
                <font>
                   <Font name="Georgia Bold" size="19.0" />
                </font>
@@ -30,37 +30,32 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="300.0" spacing="20.0">
                      <children>
-                        <Label text="Información de la multa" textFill="#2aa4bf">
+                        <Label text="Información del préstamo de libro" textFill="#2aa4bf">
                            <font>
                               <Font name="Georgia Bold" size="13.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="name" promptText="Nombre">
+                        <TextField fx:id="tf_userName" promptText="Nombre de usuario">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="amountFine" layoutX="10.0" layoutY="45.0" promptText="Monto">
+                        <TextField fx:id="tf_titleBookLoan" promptText="Titulo del libro">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="fineDate" promptText="Fecha de la multa dd/mm/aaaa">
+                        <TextField fx:id="tf_authorBookLoan" promptText="Autor">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="paymentDate" promptText="Fecha de pago dd/mm/aaaa">
+                        <TextField fx:id="tf_dateLoan" promptText="Fecha de préstamo dd/mm/aaaa">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="dueDate" promptText="Fecha de vencimiento dd/mm/aaaa">
-                           <font>
-                              <Font name="Georgia" size="12.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="descriptionFine" promptText="Descripción">
+                        <TextField fx:id="tf_returnDateLoan" promptText="Fecha de devolución dd/mm/aaaa">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>
@@ -74,7 +69,7 @@
             </HBox>
             <VBox alignment="CENTER" spacing="20.0">
                <children>
-                  <Button fx:id="btnAddFine" mnemonicParsing="false" onAction="#onAddFine" prefHeight="35.0" prefWidth="130.0" styleClass="btn_access" stylesheets="@../css/login.css" text="Aceptar">
+                  <Button fx:id="btn_addBookLoan" mnemonicParsing="false" onAction="#onAddBookLoan" prefHeight="35.0" prefWidth="150.0" styleClass="btn_register" stylesheets="@../css/login.css" text="Agregar préstamo">
                      <font>
                         <Font name="Georgia Bold" size="15.0" />
                      </font>
@@ -85,7 +80,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#onRegresar" prefHeight="35.0" prefWidth="130.0" styleClass="btn_access" stylesheets="@../css/login.css" text="Regresar">
+                  <Button fx:id="btn_back" mnemonicParsing="false" onAction="#onRegresar" prefHeight="35.0" prefWidth="130.0" styleClass="btn_access" stylesheets="@../css/login.css" text="Regresar">
                      <font>
                         <Font name="Georgia Bold" size="15.0" />
                      </font>

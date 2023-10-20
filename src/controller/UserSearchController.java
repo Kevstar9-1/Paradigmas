@@ -16,6 +16,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -53,10 +55,19 @@ public class UserSearchController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void onuserSearch(ActionEvent event) {
+        String username = tf_user.getText();
+
+        if (username.isEmpty()) {
+            showAlert("Campo de usuario vacío", "Por favor, ingrese un nombre de usuario antes de buscar.");
+        } else {
+
+        }
+        
+        tf_user.clear();
     }
 
     @FXML
@@ -74,5 +85,13 @@ public class UserSearchController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+
+    private void showAlert(String title, String content) {
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
 }
