@@ -60,11 +60,6 @@ public class BookSearchController implements Initializable {
     private TableColumn<Book, String> tc_category;
     @FXML
     private Button btn_Regresar;
-
-    Book book;
-    conexionDB DB_Connection = conexionDB.getconnector();
-    Connection connection = DB_Connection.getConn();
-    
     @FXML
     private Button btn_titleSearch;
     @FXML
@@ -75,6 +70,11 @@ public class BookSearchController implements Initializable {
     private Button btn_GenreSearch;
     @FXML
     private Button btn_categorySearch;
+    
+    Book book;
+    conexionDB DB_Connection = conexionDB.getconnector();
+    Connection connection = DB_Connection.getConn();
+    
 
     /**
      * Initializes the controller class.
@@ -86,16 +86,6 @@ public class BookSearchController implements Initializable {
         tc_publisher.setCellValueFactory(new PropertyValueFactory<>("publisher"));
         tc_genre.setCellValueFactory(new PropertyValueFactory<>("genre"));
         tc_category.setCellValueFactory(new PropertyValueFactory<>("categories"));
-    }
-
-    private void onBookSearch(ActionEvent event) {
-        String bookID = tf_bookGenre.getText();
-        String bookAuthor = tf_bookAuthor.getText();
-        String bookTitle = tf_titleBook.getText();
-        String bookPublisher = tf_publisher.getText();
-        String bookCategory = tf_category1.getText();
-        DBSearchTitle(bookTitle);
-        
     }
 
     public void DBSearchTitle(String titleBook) {
@@ -276,22 +266,33 @@ public class BookSearchController implements Initializable {
 
     @FXML
     private void onTitleSearch(ActionEvent event) {
+        String bookTitle = tf_titleBook.getText();
+        //alerta pero solo de titulo
+        DBSearchTitle(bookTitle);
     }
 
     @FXML
     private void onAuthorSearch(ActionEvent event) {
+         String bookAuthor = tf_bookAuthor.getText();
+         DBSearchAuthor(bookAuthor);
     }
 
     @FXML
     private void onPubliserSearch(ActionEvent event) {
+        String bookPublisher = tf_publisher.getText();
+        DBSearchPublisher(bookPublisher);
     }
 
     @FXML
     private void onGenreearch(ActionEvent event) {
+        String bookGenre = tf_bookGenre.getText();
+        DBSearchGenre(bookGenre);
     }
 
     @FXML
     private void onCategorySearch(ActionEvent event) {
+        String bookCategory = tf_category1.getText();
+        DBSearchCategory(bookCategory);
     }
 
 }
