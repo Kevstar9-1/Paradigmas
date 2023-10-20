@@ -63,11 +63,55 @@ public class LoginController implements Initializable {
 
         if (username.isEmpty() || password.isEmpty()) {
             mostrarAlerta(AlertType.ERROR, "Error de inicio de sesión", "Por favor, complete todos los campos.");
-        } else if (validarCredenciales(username, password)) {
-            mostrarAlerta(AlertType.INFORMATION, "Inicio de sesión exitoso", "¡Bienvenido, " + username + "!");
-            cambiarAPantallaHome(event);
         } else {
-            mostrarAlerta(AlertType.ERROR, "Error de inicio de sesión", "Credenciales incorrectas.");
+            String userType = getUserType(username, password);
+
+            if (userType.equals("Empleado")) {
+                mostrarAlerta(AlertType.INFORMATION, "Inicio de sesión exitoso", "¡Bienvenido, " + username + "!");
+                cambiarAPantallaHome(event, "/view/home.fxml");
+            } else if (userType.equals("Normal")) {
+                mostrarAlerta(AlertType.INFORMATION, "Inicio de sesión exitoso", "¡Bienvenido, " + username + "!");
+                cambiarAPantallaHome(event, "/view/homeClient.fxml");
+            } else {
+                mostrarAlerta(AlertType.ERROR, "Error de inicio de sesión", "Credenciales incorrectas.");
+            }
+        }
+    }
+
+    private String getUserType(String username, String password) {
+        try {
+            String selectQuery = "SELECT type FROM persons WHERE userName = ? AND pass = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                return resultSet.getString("type");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al realizar la consulta en la base de datos.");
+            e.printStackTrace();
+        }
+
+        return "No Encontrado"; // Puedes ajustar este valor predeterminado según tus necesidades
+    }
+
+    private void cambiarAPantallaHome(ActionEvent event, String fxmlPath) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Pantalla de inicio");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            loginStage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

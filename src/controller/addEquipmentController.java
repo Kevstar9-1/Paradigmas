@@ -68,13 +68,31 @@ public class addEquipmentController implements Initializable {
             return;
         }
 
-        if (isInEditMode) {
+        // Validar si equipQuantity es numérico
+        if (!isNumeric(equipQuantity)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error en el registro");
+            alert.setHeaderText(null);
+            alert.setContentText("El campo 'Cantidad' debe contener solo valores numéricos.");
+            alert.showAndWait();
+            return;
+        }
 
+        if (isInEditMode) {
             return;
         }
 
         DBSaveEquip();
         clearEntries();
+    }
+
+    private boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     private void clearEntries() {
