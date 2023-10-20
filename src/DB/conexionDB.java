@@ -16,7 +16,7 @@ public class conexionDB {
     
     private static conexionDB connector;
     private Connection conn;
-    private String url = "jdbc:mysql://localhost:3306/libros";
+    private String url = "jdbc:mysql://localhost:3306/library";
     private String user = "library";
     private String password = "library";
 

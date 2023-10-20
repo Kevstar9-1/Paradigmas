@@ -4,8 +4,13 @@
  */
 package controller;
 
+import DB.conexionDB;
+import Equipment.Equipment;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -31,6 +37,12 @@ public class addEquipmentController implements Initializable {
     @FXML
     private TextField tf_quantityEquipment;
 
+    Equipment equip;
+
+    conexionDB DB_Connection = conexionDB.getconnector();
+    Connection connection = DB_Connection.getConn();
+
+    private Boolean isInEditMode = Boolean.FALSE;
     /**
      * Initializes the controller class.
      */
@@ -41,6 +53,57 @@ public class addEquipmentController implements Initializable {
 
     @FXML
     private void onRegistrar(ActionEvent event) {
+        String equipName = tf_EquipmentName.getText();
+        String equipType = tf_typeEquipment.getText();
+        String equipQuantity = tf_quantityEquipment.getText();
+
+        if (equipName.isEmpty() || equipType.isEmpty() || equipQuantity.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Insufficient Data");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter data in all fields.");
+            alert.showAndWait();
+            return;
+        }
+
+        if (isInEditMode) {
+
+            return;
+        }
+
+        DBSaveEquip();
+        clearEntries();
+    }
+
+    private void clearEntries() {
+        tf_EquipmentName.clear();
+        tf_typeEquipment.clear();
+        tf_quantityEquipment.clear();
+    }
+
+    
+
+    public void DBSaveEquip() {
+        equip = new Equipment(tf_EquipmentName.getText(), tf_typeEquipment.getText(), tf_quantityEquipment.getText());
+        int rows = 0;
+        
+        try {
+            String insertQuery = "INSERT INTO equipment (name, type, available, "
+                    + "quantity) VALUES (?, ?, ?, ?)";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
+            preparedStatement.setString(1, equip.getName());
+            preparedStatement.setString(2, equip.getType());
+            preparedStatement.setString(3, "T");
+            preparedStatement.setString(4, equip.getQuantity());
+
+            rows = preparedStatement.executeUpdate();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println("Error al insertar datos.");
+            e.printStackTrace();
+        }
+        
     }
 
     @FXML

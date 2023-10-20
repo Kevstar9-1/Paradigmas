@@ -4,9 +4,17 @@
  */
 package controller;
 
+import Book.Book;
+import DB.conexionDB;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +26,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 /**
@@ -38,37 +47,212 @@ public class BookSearchController implements Initializable {
     @FXML
     private TextField tf_category1;
     @FXML
-    private TableView<?> tb_book;
+    private TableView<Book> tb_book;
     @FXML
-    private TableColumn<?, ?> tc_title;
+    private TableColumn<Book, String> tc_title;
     @FXML
-    private TableColumn<?, ?> tc_author;
+    private TableColumn<Book, String> tc_author;
     @FXML
-    private TableColumn<?, ?> tc_publisher;
+    private TableColumn<Book, String> tc_publisher;
     @FXML
-    private TableColumn<?, ?> tc_genre;
+    private TableColumn<Book, String> tc_genre;
     @FXML
-    private TableColumn<?, ?> tc_category;
+    private TableColumn<Book, String> tc_category;
     @FXML
     private Button btn_bookSearch;
     @FXML
     private Button btn_Regresar;
+
+    Book book;
+    conexionDB DB_Connection = conexionDB.getconnector();
+    Connection connection = DB_Connection.getConn();
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        tc_title.setCellValueFactory(new PropertyValueFactory<>("title"));
+        tc_author.setCellValueFactory(new PropertyValueFactory<>("author"));
+        tc_publisher.setCellValueFactory(new PropertyValueFactory<>("publisher"));
+        tc_genre.setCellValueFactory(new PropertyValueFactory<>("genre"));
+        tc_category.setCellValueFactory(new PropertyValueFactory<>("categories"));
+    }
 
     @FXML
     private void onBookSearch(ActionEvent event) {
+        String bookID = tf_bookGenre.getText();
+        String bookAuthor = tf_bookAuthor.getText();
+        String bookTitle = tf_titleBook.getText();
+        String bookPublisher = tf_publisher.getText();
+        String bookCategory = tf_category1.getText();
+        DBSearchTitle(bookTitle);
+        
+    }
+
+    public void DBSearchTitle(String titleBook) {
+
+        try {
+            String searchQuery = "SELECT * FROM books WHERE title LIKE ? ";
+            PreparedStatement preparedStatement = connection.prepareStatement(searchQuery);
+            preparedStatement.setString(1, "%" + titleBook + "%"); // Búsqueda parcial del título
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            // Limpia la tabla antes de agregar los resultados
+            tb_book.getItems().clear();
+
+            while (resultSet.next()) {
+
+                String title = resultSet.getString("title");
+                String author = resultSet.getString("author");
+                String publisher = resultSet.getString("publisher");
+                String genre = resultSet.getString("genre");
+                String category = resultSet.getString("categories");
+
+                // Crea un nuevo objeto Book con los datos encontrados en la base de datos
+                Book book = new Book(title, author, genre, category, publisher, category);
+                // Agrega el libro a la tabla
+                tb_book.getItems().add(book);
+            }
+
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println("Error al buscar libros.");
+            e.printStackTrace();
+        }
+    }
+
+    public void DBSearchAuthor(String authorBook) {
+
+        try {
+            String searchQuery = "SELECT * FROM books WHERE author LIKE ? ";
+            PreparedStatement preparedStatement = connection.prepareStatement(searchQuery);
+            preparedStatement.setString(1, "%" + authorBook + "%"); // Búsqueda parcial del título
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            // Limpia la tabla antes de agregar los resultados
+            tb_book.getItems().clear();
+
+            while (resultSet.next()) {
+
+                String title = resultSet.getString("title");
+                String author = resultSet.getString("author");
+                String publisher = resultSet.getString("publisher");
+                String genre = resultSet.getString("genre");
+                String category = resultSet.getString("categories");
+
+                // Crea un nuevo objeto Book con los datos encontrados en la base de datos
+                Book book = new Book(title, author, genre, category, publisher, category);
+                // Agrega el libro a la tabla
+                tb_book.getItems().add(book);
+            }
+
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println("Error al buscar libros.");
+            e.printStackTrace();
+        }
+    }
+
+    public void DBSearchPublisher(String publisherBook) {
+
+        try {
+            String searchQuery = "SELECT * FROM books WHERE publisher LIKE ? ";
+            PreparedStatement preparedStatement = connection.prepareStatement(searchQuery);
+            preparedStatement.setString(1, "%" + publisherBook + "%"); // Búsqueda parcial del título
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            // Limpia la tabla antes de agregar los resultados
+            tb_book.getItems().clear();
+
+            while (resultSet.next()) {
+
+                String title = resultSet.getString("title");
+                String author = resultSet.getString("author");
+                String publisher = resultSet.getString("publisher");
+                String genre = resultSet.getString("genre");
+                String category = resultSet.getString("categories");
+
+                // Crea un nuevo objeto Book con los datos encontrados en la base de datos
+                Book book = new Book(title, author, genre, category, publisher, category);
+                // Agrega el libro a la tabla
+                tb_book.getItems().add(book);
+            }
+
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println("Error al buscar libros.");
+            e.printStackTrace();
+        }
+    }
+    
+    public void DBSearchGenre(String genreBook) {
+
+        try {
+            String searchQuery = "SELECT * FROM books WHERE genre LIKE ? ";
+            PreparedStatement preparedStatement = connection.prepareStatement(searchQuery);
+            preparedStatement.setString(1, "%" + genreBook + "%"); // Búsqueda parcial del título
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            // Limpia la tabla antes de agregar los resultados
+            tb_book.getItems().clear();
+
+            while (resultSet.next()) {
+
+                String title = resultSet.getString("title");
+                String author = resultSet.getString("author");
+                String publisher = resultSet.getString("publisher");
+                String genre = resultSet.getString("genre");
+                String category = resultSet.getString("categories");
+
+                // Crea un nuevo objeto Book con los datos encontrados en la base de datos
+                Book book = new Book(title, author, genre, category, publisher, category);
+                // Agrega el libro a la tabla
+                tb_book.getItems().add(book);
+            }
+
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println("Error al buscar libros.");
+            e.printStackTrace();
+        }
+    }
+    
+    public void DBSearchCategory(String categoryBook) {
+
+        try {
+            String searchQuery = "SELECT * FROM books WHERE categories LIKE ? ";
+            PreparedStatement preparedStatement = connection.prepareStatement(searchQuery);
+            preparedStatement.setString(1, "%" + categoryBook + "%"); // Búsqueda parcial del título
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            // Limpia la tabla antes de agregar los resultados
+            tb_book.getItems().clear();
+
+            while (resultSet.next()) {
+
+                String title = resultSet.getString("title");
+                String author = resultSet.getString("author");
+                String publisher = resultSet.getString("publisher");
+                String genre = resultSet.getString("genre");
+                String category = resultSet.getString("categories");
+
+                // Crea un nuevo objeto Book con los datos encontrados en la base de datos
+                Book book = new Book(title, author, genre, category, publisher, category);
+                // Agrega el libro a la tabla
+                tb_book.getItems().add(book);
+            }
+
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println("Error al buscar libros.");
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void onRegresar(ActionEvent event) {
-       try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/home.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
@@ -81,5 +265,5 @@ public class BookSearchController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+
 }

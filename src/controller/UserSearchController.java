@@ -4,6 +4,8 @@
  */
 package controller;
 
+import Person.Person;
+import Person.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,6 +21,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import loan.Loan;
 
 /**
  * FXML Controller class
@@ -32,15 +35,15 @@ public class UserSearchController implements Initializable {
     @FXML
     private Button btn_userSearch;
     @FXML
-    private TableView<?> tb_user;
+    private TableView<User> tb_user;
     @FXML
-    private TableColumn<?, ?> tc_id;
+    private TableColumn<User, String> tc_id;
     @FXML
-    private TableColumn<?, ?> tc_name;
+    private TableColumn<Person, String> tc_name;
     @FXML
-    private TableColumn<?, ?> tc_fine;
+    private TableColumn<Person, String> tc_fine;
     @FXML
-    private TableColumn<?, ?> tc_load;
+    private TableColumn<Loan, String> tc_load;
     @FXML
     private Button btn_Back;
 

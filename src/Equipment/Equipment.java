@@ -17,12 +17,12 @@ public class Equipment  {
     private String name;
     private String type;
     private boolean available;
-    private int quantity;
+    private String quantity;
 
     public Equipment() {
     }
 
-    public Equipment(String name, String type, boolean available, int quantity) {
+    public Equipment(String name, String type, String quantity) {
         this.name = name;
         this.type = type;
         this.available = available;
@@ -38,13 +38,31 @@ public class Equipment  {
         this.available = available;
     }
 
-    public int getQuantity() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
+
+    
 
     @Override
     public String toString() {

@@ -4,7 +4,6 @@
  */
 package controller;
 
-
 import java.io.IOException;
 
 import Book.Book;
@@ -52,7 +51,6 @@ public class addBookController implements Initializable {
     Connection connection = DB_Connection.getConn();
 
     private Boolean isInEditMode = Boolean.FALSE;
-    
 
     /**
      * Initializes the controller class.
@@ -96,13 +94,11 @@ public class addBookController implements Initializable {
         categorieBook.clear();
     }
 
-    
-
     public void DBSaveBook() {
         book = new Book(bookTitle.getText(), authorBook.getText(), genreBook.getText(), categorieBook.getText(),
                 publisherBook.getText(), urlBook.getText());
         int rows = 0;
-        
+
         try {
             String insertQuery = "INSERT INTO books (title, author, genre, "
                     + "available, categories, publisher, url) VALUES (?, ?, ?, ?, ?, ?,?)";
@@ -113,26 +109,21 @@ public class addBookController implements Initializable {
             preparedStatement.setString(3, book.getGenre());
             preparedStatement.setString(4, "T");
             preparedStatement.setString(5, book.getCategories());
+            preparedStatement.setString(6, book.getPublisher());
+            preparedStatement.setString(7, book.getUrl());
 
-           
-                preparedStatement.setString(6, book.getPublisher());
-                preparedStatement.setString(7, book.getUrl());
-
-                rows = preparedStatement.executeUpdate();
+            rows = preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (SQLException e) {
             System.out.println("Error al insertar datos.");
             e.printStackTrace();
         }
-        
+
     }
-
-    
-
 
     @FXML
     private void onRegresar(ActionEvent event) {
-         try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/home.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
@@ -145,6 +136,5 @@ public class addBookController implements Initializable {
             e.printStackTrace();
         }
     }
-    
-}
 
+}
