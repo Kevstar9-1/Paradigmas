@@ -59,7 +59,7 @@ public class RegisterController implements Initializable {
     @FXML
     private ComboBox<String> cb_typeUser;
     @FXML
-    private PasswordField tf_phone;
+    private TextField tf_phone;
 
     /**
      * Initializes the controller class.

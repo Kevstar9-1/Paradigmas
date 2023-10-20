@@ -49,7 +49,7 @@
                               <Font name="Georgia" size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="tf_address" promptText="Cedula" styleClass="registro" stylesheets="@css/administrador.css">
+                        <TextField fx:id="tf_address" promptText="Dirección" styleClass="registro" stylesheets="@css/administrador.css">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>
@@ -74,10 +74,11 @@
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font></TextField>
-                        <PasswordField fx:id="tf_phone" promptText="Telefono">
+                        <TextField fx:id="tf_phone" promptText="Telefono">
                            <font>
                               <Font name="Georgia" size="12.0" />
-                           </font></PasswordField>
+                           </font>
+                        </TextField>
                         <PasswordField fx:id="tf_password" promptText="Contraseña">
                            <font>
                               <Font name="Georgia" size="12.0" />

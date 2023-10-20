@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
 
 /**
  * FXML Controller class
@@ -43,13 +44,14 @@ public class addEquipmentController implements Initializable {
     Connection connection = DB_Connection.getConn();
 
     private Boolean isInEditMode = Boolean.FALSE;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void onRegistrar(ActionEvent event) {
@@ -81,12 +83,10 @@ public class addEquipmentController implements Initializable {
         tf_quantityEquipment.clear();
     }
 
-    
-
     public void DBSaveEquip() {
         equip = new Equipment(tf_EquipmentName.getText(), tf_typeEquipment.getText(), tf_quantityEquipment.getText());
         int rows = 0;
-        
+
         try {
             String insertQuery = "INSERT INTO equipment (name, type, available, "
                     + "quantity) VALUES (?, ?, ?, ?)";
@@ -99,16 +99,24 @@ public class addEquipmentController implements Initializable {
 
             rows = preparedStatement.executeUpdate();
             preparedStatement.close();
+
+            if (rows > 0) {
+                // Mostrar una alerta de éxito
+                Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                successAlert.setTitle("Éxito");
+                successAlert.setHeaderText(null);
+                successAlert.setContentText("Equipo añadido exitosamente a la base de datos.");
+                successAlert.showAndWait();
+            }
         } catch (SQLException e) {
             System.out.println("Error al insertar datos.");
             e.printStackTrace();
         }
-        
     }
 
     @FXML
     private void onRegresar(ActionEvent event) {
-         try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/home.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
@@ -121,5 +129,5 @@ public class addEquipmentController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+
 }

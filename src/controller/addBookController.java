@@ -25,6 +25,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
 
 /**
  * FXML Controller class
@@ -114,11 +115,19 @@ public class addBookController implements Initializable {
 
             rows = preparedStatement.executeUpdate();
             preparedStatement.close();
+
+            if (rows > 0) {
+                // Mostrar una alerta de éxito
+                Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                successAlert.setTitle("Éxito");
+                successAlert.setHeaderText(null);
+                successAlert.setContentText("Libro añadido exitosamente a la base de datos.");
+                successAlert.showAndWait();
+            }
         } catch (SQLException e) {
             System.out.println("Error al insertar datos.");
             e.printStackTrace();
         }
-
     }
 
     @FXML

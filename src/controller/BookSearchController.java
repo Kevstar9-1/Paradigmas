@@ -32,6 +32,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 /**
  * FXML Controller class
@@ -272,11 +274,16 @@ public class BookSearchController implements Initializable {
     private void onTitleSearch(ActionEvent event) {
         String bookTitle = tf_titleBook.getText();
         if (isFieldEmpty(bookTitle)) {
-            showAlert("Error de busqueda", "Por favor ingrese un titulo antes de buscar.");
+            showAlert("Error de búsqueda", "Por favor ingrese un título antes de buscar.");
         } else {
             DBSearchTitle(bookTitle);
+            if (tb_book.getItems().isEmpty()) {
+                showAlert("Búsqueda sin resultados", "No se encontraron libros con el título proporcionado.");
+            } else {
+                showAlert("Búsqueda exitosa", "Se encontraron libros con el título proporcionado.");
+            }
         }
-        
+
         tf_titleBook.clear();
     }
 
@@ -287,8 +294,13 @@ public class BookSearchController implements Initializable {
             showAlert("Error de busqueda", "Por favor ingrese un autor antes de buscar.");
         } else {
             DBSearchAuthor(bookAuthor);
+            if (tb_book.getItems().isEmpty()) {
+                showAlert("Búsqueda sin resultados", "No se encontraron libros con el título proporcionado.");
+            } else {
+                showAlert("Búsqueda exitosa", "Se encontraron libros con el título proporcionado.");
+            }
         }
-        
+
         tf_bookAuthor.clear();
     }
 
@@ -299,8 +311,13 @@ public class BookSearchController implements Initializable {
             showAlert("Error de busqueda", "Por favor ingrese un Editorial antes de buscar.");
         } else {
             DBSearchPublisher(bookPublisher);
+             if (tb_book.getItems().isEmpty()) {
+                showAlert("Búsqueda sin resultados", "No se encontraron libros con el título proporcionado.");
+            } else {
+                showAlert("Búsqueda exitosa", "Se encontraron libros con el título proporcionado.");
+            }
         }
-        
+
         tf_publisher.clear();
     }
 
@@ -311,8 +328,13 @@ public class BookSearchController implements Initializable {
             showAlert("Error de busqueda", "Por favor ingrese un género antes de buscar.");
         } else {
             DBSearchGenre(bookGenre);
+             if (tb_book.getItems().isEmpty()) {
+                showAlert("Búsqueda sin resultados", "No se encontraron libros con el título proporcionado.");
+            } else {
+                showAlert("Búsqueda exitosa", "Se encontraron libros con el título proporcionado.");
+            }
         }
-        
+
         tf_bookGenre.clear();
     }
 
@@ -323,8 +345,13 @@ public class BookSearchController implements Initializable {
             showAlert("Error de busqueda", "Por favor ingrese una categoría antes de buscar.");
         } else {
             DBSearchCategory(bookCategory);
+             if (tb_book.getItems().isEmpty()) {
+                showAlert("Búsqueda sin resultados", "No se encontraron libros con el título proporcionado.");
+            } else {
+                showAlert("Búsqueda exitosa", "Se encontraron libros con el título proporcionado.");
+            }
         }
-        
+
         tf_category1.clear();
     }
 
