@@ -13,7 +13,7 @@
 
 <VBox alignment="CENTER" style="-fx-background-color: #E8E8E8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BookSearchController">
    <children>
-      <VBox alignment="CENTER" prefHeight="579.0" prefWidth="635.0" spacing="10.0">
+      <VBox alignment="CENTER" prefHeight="578.0" prefWidth="883.0" spacing="10.0">
          <padding>
             <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
          </padding>
@@ -76,45 +76,121 @@
                   </VBox>
                </children>
             </HBox>
-            <TableView fx:id="tb_book" prefHeight="222.0" prefWidth="586.0">
+            <TableView fx:id="tb_book" prefHeight="303.0" prefWidth="586.0">
               <columns>
-                <TableColumn fx:id="tc_title" prefWidth="94.39995843172073" text="Titulo" />
-                <TableColumn fx:id="tc_author" prefWidth="98.40003204345703" text="Autor" />
-                  <TableColumn fx:id="tc_publisher" prefWidth="124.80000305175781" text="Editorial" />
-                  <TableColumn fx:id="tc_genre" prefWidth="117.60003662109375" text="Género" />
-                  <TableColumn fx:id="tc_category" prefWidth="148.79995727539062" text="Categoria" />
+                <TableColumn fx:id="tc_title" prefWidth="121.59997826814651" text="Titulo" />
+                <TableColumn fx:id="tc_author" prefWidth="158.3999481201172" text="Autor" />
+                  <TableColumn fx:id="tc_publisher" prefWidth="186.40008544921875" text="Editorial" />
+                  <TableColumn fx:id="tc_genre" prefWidth="166.39999389648438" text="Género" />
+                  <TableColumn fx:id="tc_category" prefWidth="201.5999755859375" text="Categoria" />
               </columns>
             </TableView>
-            <VBox alignment="CENTER" spacing="20.0">
-               <children>
-                  <Button id="btn_bookSearch" fx:id="btn_bookSearch" mnemonicParsing="false" onAction="#onBookSearch" prefHeight="35.0" prefWidth="130.0" styleClass="btn_bookSearch" stylesheets="@../css/booksearch.css" text="Buscar libro" textFill="WHITE">
-                     <font>
-                        <Font name="Georgia Bold" size="15.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button id="btn_bookSearch" fx:id="btn_Regresar" mnemonicParsing="false" onAction="#onRegresar" prefHeight="35.0" prefWidth="130.0" styleClass="btn_bookSearch" stylesheets="@../css/booksearch.css" text="Regresar" textFill="WHITE">
-                     <font>
-                        <Font name="Georgia Bold" size="15.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </VBox>
+            <Button id="btn_bookSearch" fx:id="btn_titleSearch" mnemonicParsing="false" onAction="#onTitleSearch" prefHeight="35.0" prefWidth="219.0" styleClass="btn_bookSearch" stylesheets="@../css/booksearch.css" text="Búsqueda por titulo" textFill="WHITE">
+               <font>
+                  <Font name="Georgia Bold" size="15.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </Button>
          </children>
       </VBox>
+      <HBox alignment="CENTER" prefHeight="112.0" prefWidth="420.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="300.0" spacing="20.0">
+               <HBox.margin>
+                  <Insets right="25.0" />
+               </HBox.margin>
+               <children>
+                  <Button id="btn_bookSearch" fx:id="btn_autorSearch" mnemonicParsing="false" onAction="#onAuthorSearch" prefHeight="35.0" prefWidth="189.0" styleClass="btn_bookSearch" stylesheets="@../css/booksearch.css" text="Búsqueda por autor" textFill="WHITE">
+                     <font>
+                        <Font name="Georgia Bold" size="15.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button id="btn_bookSearch" fx:id="btn_publisherSearch" mnemonicParsing="false" onAction="#onPubliserSearch" prefHeight="35.0" prefWidth="202.0" styleClass="btn_bookSearch" stylesheets="@../css/booksearch.css" text="Búsqueda por editorial" textFill="WHITE">
+                     <font>
+                        <Font name="Georgia Bold" size="15.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <Button id="btn_bookSearch" fx:id="btn_Regresar" mnemonicParsing="false" onAction="#onRegresar" prefHeight="35.0" prefWidth="219.0" styleClass="btn_bookSearch" stylesheets="@../css/booksearch.css" text="Regresar" textFill="WHITE">
+               <font>
+                  <Font name="Georgia Bold" size="15.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <VBox prefHeight="200.0" prefWidth="300.0" spacing="20.0">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+               <children>
+                  <Button id="btn_bookSearch" fx:id="btn_GenreSearch" mnemonicParsing="false" onAction="#onGenreearch" prefHeight="35.0" prefWidth="225.0" styleClass="btn_bookSearch" stylesheets="@../css/booksearch.css" text="Búsqueda por género" textFill="WHITE">
+                     <font>
+                        <Font name="Georgia Bold" size="15.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets left="80.0" right="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button id="btn_bookSearch" fx:id="btn_categorySearch" mnemonicParsing="false" onAction="#onCategorySearch" prefHeight="35.0" prefWidth="219.0" styleClass="btn_bookSearch" stylesheets="@../css/booksearch.css" text="Búsqueda por categoria" textFill="WHITE">
+                     <font>
+                        <Font name="Georgia Bold" size="15.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets left="80.0" right="10.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
    </children>
 </VBox>

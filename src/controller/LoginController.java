@@ -89,7 +89,7 @@ public class LoginController implements Initializable {
     }
 
     private boolean validarCredenciales(String username, String password) {
-        String rutaArchivo = "C:\\Users\\Adria\\OneDrive\\Documentos\\usuarios.txt";
+        String rutaArchivo = "C:\\Documentos\\PARADIGMAS DE PROGRAMACION\\Base de datos para proyecto#2\\usuarios.txt";
 
         try ( BufferedReader reader = new BufferedReader(new FileReader(rutaArchivo))) {
             String linea;
