@@ -59,13 +59,22 @@ public class BookSearchController implements Initializable {
     @FXML
     private TableColumn<Book, String> tc_category;
     @FXML
-    private Button btn_bookSearch;
-    @FXML
     private Button btn_Regresar;
 
     Book book;
     conexionDB DB_Connection = conexionDB.getconnector();
     Connection connection = DB_Connection.getConn();
+    
+    @FXML
+    private Button btn_titleSearch;
+    @FXML
+    private Button btn_autorSearch;
+    @FXML
+    private Button btn_publisherSearch;
+    @FXML
+    private Button btn_GenreSearch;
+    @FXML
+    private Button btn_categorySearch;
 
     /**
      * Initializes the controller class.
@@ -79,7 +88,6 @@ public class BookSearchController implements Initializable {
         tc_category.setCellValueFactory(new PropertyValueFactory<>("categories"));
     }
 
-    @FXML
     private void onBookSearch(ActionEvent event) {
         String bookID = tf_bookGenre.getText();
         String bookAuthor = tf_bookAuthor.getText();
@@ -256,7 +264,7 @@ public class BookSearchController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/home.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
-            stage.setTitle("Pantalla de inicio");
+            stage.setTitle("Inicio");
             stage.setScene(new Scene(root));
             stage.show();
             Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -264,6 +272,26 @@ public class BookSearchController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void onTitleSearch(ActionEvent event) {
+    }
+
+    @FXML
+    private void onAuthorSearch(ActionEvent event) {
+    }
+
+    @FXML
+    private void onPubliserSearch(ActionEvent event) {
+    }
+
+    @FXML
+    private void onGenreearch(ActionEvent event) {
+    }
+
+    @FXML
+    private void onCategorySearch(ActionEvent event) {
     }
 
 }

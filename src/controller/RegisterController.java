@@ -113,7 +113,7 @@ public class RegisterController implements Initializable {
     }
 
     private void guardarUsuarioEnArchivo(String nombre, String apellidos, String username, String email, String password) {
-        String rutaArchivo = "C:\\Users\\Usuario\\Desktop\\Universidad\\Paradigmas\\usuariosBiblioteca\\usuarios.txt";
+        String rutaArchivo = "C:\\Users\\Adria\\OneDrive\\Documentos\\usuarios.txt";
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(rutaArchivo, true));
