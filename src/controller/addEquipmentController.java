@@ -59,9 +59,9 @@ public class addEquipmentController implements Initializable {
 
         if (equipName.isEmpty() || equipType.isEmpty() || equipQuantity.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Insufficient Data");
+            alert.setTitle("Error en el registro");
             alert.setHeaderText(null);
-            alert.setContentText("Please enter data in all fields.");
+            alert.setContentText("Por favor, complete todos los campos.");
             alert.showAndWait();
             return;
         }
