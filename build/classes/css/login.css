@@ -1,0 +1,28 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 19 oct. 2023, 22:51:06
+    Author     : Adria
+*/
+.btn_access{
+    -fx-background-color: #445760; 
+    -fx-text-fill: #fff; 
+    -fx-border-color: #2980b9; 
+    -fx-border-width: 1px; 
+    -fx-border-radius: 3px;
+    -fx-font-size: 14px; 
+    -fx-text-transform: uppercase; 
+    -fx-cursor: hand;
+}
+.btn_register{
+    -fx-background-color: #445760; 
+    -fx-text-fill: #fff; 
+    -fx-border-color: #2980b9; 
+    -fx-border-width: 1px; 
+    -fx-border-radius: 3px;
+    -fx-font-size: 14px; 
+    -fx-text-transform: uppercase; 
+    -fx-cursor: hand;
+}

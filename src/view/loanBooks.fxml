@@ -9,19 +9,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" style="-fx-background-color: #E8E8E8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.addBookController">
+<VBox alignment="CENTER" style="-fx-background-color: #E8E8E8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoanBooksController">
    <children>
       <VBox alignment="CENTER" spacing="10.0">
-          <padding>
-              <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
-          </padding>
+         <padding>
+            <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
+         </padding>
          <children>
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="416.0">
                <children>
                   <VBox alignment="CENTER" spacing="10.0" />
                </children>
             </HBox>
-            <Label text="Registro de libro" textFill="#08678c">
+            <Label text="Préstamo de libro" textFill="#08678c">
                <font>
                   <Font name="Georgia Bold" size="19.0" />
                </font>
@@ -30,38 +30,36 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="300.0" spacing="20.0">
                      <children>
-                        <Label text="Información de libro" textFill="#2aa4bf">
+                        <Label text="Información del préstamo de libro" textFill="#2aa4bf">
                            <font>
                               <Font name="Georgia Bold" size="13.0" />
-                           </font></Label>
-                        <TextField fx:id="bookTitle" promptText="Titulo del libro">
-                           <font>
-                              <Font name="Georgia" size="12.0" />
-                           </font></TextField>
-                        <TextField fx:id="authorBook" layoutX="10.0" layoutY="45.0" promptText="Autor del Libro">
+                           </font>
+                        </Label>
+                        <TextField fx:id="tf_userName" promptText="Nombre de usuario">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="genreBook" promptText="Género">
+                        <TextField fx:id="tf_titleBookLoan" promptText="Titulo del libro">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="categorieBook" promptText="Categoria">
+                        <TextField fx:id="tf_authorBookLoan" promptText="Autor">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="publisherBook" promptText="Editorial">
+                        <TextField fx:id="tf_dateLoan" promptText="Fecha de préstamo dd/mm/aaaa">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="urlBook" promptText="URL Del Libro">
+                        <TextField fx:id="tf_returnDateLoan" promptText="Fecha de devolución dd/mm/aaaa">
                            <font>
                               <Font name="Georgia" size="12.0" />
-                           </font></TextField>
+                           </font>
+                        </TextField>
                      </children>
                      <HBox.margin>
                         <Insets left="5.0" />
@@ -71,7 +69,7 @@
             </HBox>
             <VBox alignment="CENTER" spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#Register" prefHeight="35.0" prefWidth="130.0" styleClass="btn_access" stylesheets="@../css/login.css" text="Registrar">
+                  <Button fx:id="btn_addBookLoan" mnemonicParsing="false" onAction="#onAddBookLoan" prefHeight="35.0" prefWidth="150.0" styleClass="btn_register" stylesheets="@../css/login.css" text="Agregar préstamo">
                      <font>
                         <Font name="Georgia Bold" size="15.0" />
                      </font>
@@ -82,7 +80,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#onRegresar" prefHeight="35.0" prefWidth="130.0" styleClass="btn_access" stylesheets="@../css/login.css" text="Regresar">
+                  <Button fx:id="btn_back" mnemonicParsing="false" onAction="#onRegresar" prefHeight="35.0" prefWidth="130.0" styleClass="btn_access" stylesheets="@../css/login.css" text="Regresar">
                      <font>
                         <Font name="Georgia Bold" size="15.0" />
                      </font>

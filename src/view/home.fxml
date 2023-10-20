@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="943.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="943.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
     <children>
         <Pane prefHeight="166.0" prefWidth="943.0" style="-fx-background-color: #059ad1;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
@@ -42,7 +42,7 @@
          <children>
                 <Button id="btn_register" fx:id="btn_register" onAction="#onBookRegister" prefWidth="280.0" styleClass="btn_register" stylesheets="@../css/home.css" text="Registrar libro">
                <VBox.margin>
-                  <Insets left="20.0" right="20.0" top="50.0" />
+                  <Insets left="20.0" right="20.0" top="10.0" />
                </VBox.margin>
                <graphic>
                   <ImageView fitHeight="31.0" fitWidth="28.0">
@@ -76,6 +76,18 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Button id="btn_EquipmentLoan" fx:id="btn_equipmentLoan" onAction="#onEquipmentLoan" prefWidth="280" styleClass="btn_EquipmentLoan" stylesheets="@../css/home.css" text="Prestamo de equipo">
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="28.0">
+                     <image>
+                        <Image url="@../images/prestamo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="10.0" />
+               </VBox.margin>
+            </Button>
                 <Button id="btn_bookSearch" fx:id="btn_bookSearch" onAction="#onSearchBook" prefWidth="280" styleClass="btn_bookSearch" stylesheets="@../css/home.css" text="Búsqueda de libro">
                <VBox.margin>
                   <Insets left="20.0" right="20.0" top="10.0" />
@@ -84,6 +96,18 @@
                   <ImageView fitHeight="31.0" fitWidth="28.0">
                      <image>
                         <Image url="@../images/busqueda.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button id="btn_Fine" fx:id="btn_Fine" onAction="#onFine" prefWidth="280" styleClass="btn_Fine" stylesheets="@../css/home.css" text="Multa">
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" top="10.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="31.0" fitWidth="28.0">
+                     <image>
+                        <Image url="@../images/multa.png" />
                      </image>
                   </ImageView>
                </graphic>

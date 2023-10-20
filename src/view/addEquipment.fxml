@@ -56,7 +56,7 @@
             </HBox>
             <VBox alignment="CENTER" spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#onRegistrar" prefHeight="35.0" prefWidth="130.0" styleClass="btn" stylesheets="@css/administrador.css" text="Registrar">
+                  <Button mnemonicParsing="false" onAction="#onRegistrar" prefHeight="35.0" prefWidth="130.0" styleClass="btn_register" stylesheets="@../css/login.css" text="Registrar">
                      <font>
                         <Font name="Georgia Bold" size="15.0" />
                      </font>
@@ -67,7 +67,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#onRegresar" prefHeight="35.0" prefWidth="130.0" styleClass="btn" stylesheets="@css/administrador.css" text="Regresar">
+                  <Button mnemonicParsing="false" onAction="#onRegresar" prefHeight="35.0" prefWidth="130.0" styleClass="btn_access" stylesheets="@../css/login.css" text="Regresar">
                      <font>
                         <Font name="Georgia Bold" size="15.0" />
                      </font>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" style="-fx-background-color: #E8E8E8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FineController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="390.0" prefWidth="883.0" spacing="10.0">
+         <padding>
+            <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
+         </padding>
+         <children>
+            <Label text="Multa" textFill="#08678c">
+               <font>
+                  <Font name="Georgia Bold" size="19.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="0.0" prefWidth="416.0">
+               <children>
+                  <VBox alignment="CENTER" spacing="10.0" />
+               </children>
+            </HBox>
+            <TableView fx:id="tb_fine" prefHeight="303.0" prefWidth="586.0">
+               <columns>
+                  <TableColumn fx:id="tc_userName" prefWidth="130.3999965786934" text="Nombre" />
+                  <TableColumn fx:id="tc_amount" prefWidth="259.1999969482422" text="Monto" />
+                  <TableColumn fx:id="tc_date" prefWidth="236.80001831054688" text="Fecha" />
+                  <TableColumn fx:id="tc_loan" prefWidth="207.20001220703125" text="Prestamo " />
+               </columns>
+            </TableView>
+            <Button id="btn_bookSearch" fx:id="btn_addFine" mnemonicParsing="false" onAction="#onAddFine" prefHeight="35.0" prefWidth="219.0" styleClass="btn_bookSearch" stylesheets="@../css/booksearch.css" text="Crear multa" textFill="WHITE">
+               <font>
+                  <Font name="Georgia Bold" size="15.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button id="btn_bookSearch" fx:id="btn_changeStateFine" mnemonicParsing="false" onAction="#onChangeStateFine" prefHeight="35.0" prefWidth="219.0" styleClass="btn_bookSearch" stylesheets="@../css/booksearch.css" text="Cambio de estado" textFill="WHITE">
+               <font>
+                  <Font name="Georgia Bold" size="15.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</VBox>

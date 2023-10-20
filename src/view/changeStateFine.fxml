@@ -3,25 +3,26 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" style="-fx-background-color: #E8E8E8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.addBookController">
+<VBox alignment="CENTER" style="-fx-background-color: #E8E8E8;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ChangeStateFineController">
    <children>
       <VBox alignment="CENTER" spacing="10.0">
-          <padding>
-              <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
-          </padding>
+         <padding>
+            <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
+         </padding>
          <children>
             <HBox alignment="CENTER" prefHeight="0.0" prefWidth="416.0">
                <children>
                   <VBox alignment="CENTER" spacing="10.0" />
                </children>
             </HBox>
-            <Label text="Registro de libro" textFill="#08678c">
+            <Label text="Modificar estado de la multa" textFill="#08678c">
                <font>
                   <Font name="Georgia Bold" size="19.0" />
                </font>
@@ -30,38 +31,26 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="300.0" spacing="20.0">
                      <children>
-                        <Label text="Información de libro" textFill="#2aa4bf">
+                        <Label text="Información de la multa" textFill="#2aa4bf">
                            <font>
                               <Font name="Georgia Bold" size="13.0" />
-                           </font></Label>
-                        <TextField fx:id="bookTitle" promptText="Titulo del libro">
-                           <font>
-                              <Font name="Georgia" size="12.0" />
-                           </font></TextField>
-                        <TextField fx:id="authorBook" layoutX="10.0" layoutY="45.0" promptText="Autor del Libro">
+                           </font>
+                        </Label>
+                        <TextField fx:id="userName" promptText="Nombre">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="genreBook" promptText="Género">
+                        <TextField fx:id="fineDate" promptText="Fecha de la multa dd/mm/aaaa">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="categorieBook" promptText="Categoria">
-                           <font>
-                              <Font name="Georgia" size="12.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="publisherBook" promptText="Editorial">
-                           <font>
-                              <Font name="Georgia" size="12.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="urlBook" promptText="URL Del Libro">
-                           <font>
-                              <Font name="Georgia" size="12.0" />
-                           </font></TextField>
+                        <ComboBox fx:id="cb_fineState" prefWidth="150.0">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </ComboBox>
                      </children>
                      <HBox.margin>
                         <Insets left="5.0" />
@@ -71,7 +60,7 @@
             </HBox>
             <VBox alignment="CENTER" spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#Register" prefHeight="35.0" prefWidth="130.0" styleClass="btn_access" stylesheets="@../css/login.css" text="Registrar">
+                  <Button fx:id="btnChangeStateFine" mnemonicParsing="false" onAction="#onChangeStateFine" prefHeight="35.0" prefWidth="130.0" styleClass="btn_access" stylesheets="@../css/login.css" text="Aceptar">
                      <font>
                         <Font name="Georgia Bold" size="15.0" />
                      </font>

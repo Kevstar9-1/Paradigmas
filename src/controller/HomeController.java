@@ -15,6 +15,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 /**
@@ -25,17 +27,13 @@ import javafx.stage.Stage;
 public class HomeController implements Initializable {
 
     @FXML
-    private Button btn_register;
-    @FXML
-    private Button btn_registerEquipment;
-    @FXML
-    private Button btn_bookLoan;
-    @FXML
-    private Button btn_bookSearch;
-    @FXML
     private Button btn_exitSession;
     @FXML
-    private Button btn_SearchUser;
+    private TableView<?> tb_userLoan;
+    @FXML
+    private TableColumn<?, ?> tc_userLoan;
+    @FXML
+    private TableColumn<?, ?> tc_fineLoan;
 
     /**
      * Initializes the controller class.
@@ -64,7 +62,6 @@ public class HomeController implements Initializable {
         }
     }
 
-    @FXML
     private void onBookRegister(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/addBook.fxml"));
@@ -83,7 +80,6 @@ public class HomeController implements Initializable {
         }
     }
 
-    @FXML
     private void onEquipmentRegister(ActionEvent event) {
          try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/addEquipment.fxml"));
@@ -102,7 +98,6 @@ public class HomeController implements Initializable {
         }
     }
 
-    @FXML
     private void onBookLoan(ActionEvent event) {
          try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(""));
@@ -121,7 +116,6 @@ public class HomeController implements Initializable {
         }
     }
 
-    @FXML
     private void onSearchBook(ActionEvent event) {
          try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/bookSearch.fxml"));
@@ -140,7 +134,6 @@ public class HomeController implements Initializable {
         }
     }
 
-    @FXML
     private void onSearchUser(ActionEvent event) {
          try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/userSearch.fxml"));
@@ -158,5 +151,6 @@ public class HomeController implements Initializable {
             e.printStackTrace();
         }
     }
+
     
 }
