@@ -41,7 +41,7 @@
                               <Font name="Georgia Bold" size="13.0" />
                            </font>
                         </Label>
-                        <TextField id="tf_user" fx:id="tf_user" promptText="Nombre del usuario" styleClass="tf_user">
+                        <TextField id="tf_user" fx:id="tf_user" promptText="Nombre de usuario" styleClass="tf_user">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>

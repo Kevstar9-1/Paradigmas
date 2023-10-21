@@ -39,8 +39,6 @@ public class FineController implements Initializable {
     @FXML
     private Button btn_addFine;
     @FXML
-    private Button btn_changeStateFine;
-    @FXML
     private Button btn_Regresar;
 
     /**
@@ -67,7 +65,6 @@ public class FineController implements Initializable {
         }
     }
 
-    @FXML
     private void onChangeStateFine(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/changeStateFine.fxml"));

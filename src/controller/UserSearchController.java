@@ -73,7 +73,7 @@ public class UserSearchController implements Initializable {
         String username = tf_user.getText();
 
         if (username.isEmpty()) {
-            showAlert("Campo de usuario vacío", "Por favor, ingrese un nombre de usuario antes de buscar.");
+            showAlert("Campo de usuario vacÃ­o", "Por favor, ingrese un nombre de usuario antes de buscar.");
         } else {
             ObservableList<Person> userList = searchUser(username);
 
@@ -96,7 +96,7 @@ public class UserSearchController implements Initializable {
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 String id = resultSet.getString("id");
                 String name = resultSet.getString("name");
 

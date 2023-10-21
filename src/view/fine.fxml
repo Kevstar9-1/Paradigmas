@@ -49,17 +49,6 @@
                   <Insets left="5.0" />
                </VBox.margin>
             </Button>
-            <Button id="btn_bookSearch" fx:id="btn_changeStateFine" mnemonicParsing="false" onAction="#onChangeStateFine" prefHeight="35.0" prefWidth="219.0" styleClass="btn_bookSearch" stylesheets="@../css/booksearch.css" text="Cambio de estado" textFill="WHITE">
-               <font>
-                  <Font name="Georgia Bold" size="15.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
             <Button id="btn_bookSearch" fx:id="btn_Regresar" mnemonicParsing="false" onAction="#onRegresar" prefHeight="35.0" prefWidth="219.0" styleClass="btn_bookSearch" stylesheets="@../css/booksearch.css" text="Regresar" textFill="WHITE">
                <font>
                   <Font name="Georgia Bold" size="15.0" />
