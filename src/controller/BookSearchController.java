@@ -104,7 +104,7 @@ public class BookSearchController implements Initializable {
             // Limpia la tabla antes de agregar los resultados
             tb_book.getItems().clear();
 
-            DBSearchTitleURecursive(titleBook);
+            DBSearchRecursive(titleBook);
 
             preparedStatement.close();
         } catch (SQLException e) {
@@ -113,7 +113,26 @@ public class BookSearchController implements Initializable {
         }
     }
     
-    public void DBSearchTitleURecursive(String titleBook) {
+    public void DBSearchAuthor(String authorBook) {
+
+        try {
+            String searchQuery = "SELECT * FROM books WHERE author LIKE ? ";
+            PreparedStatement preparedStatement = connection.prepareStatement(searchQuery);
+             preparedStatement.setString(1, "%" + authorBook + "%");
+            resultSet = preparedStatement.executeQuery();
+
+            // Limpia la tabla antes de agregar los resultados
+            tb_book.getItems().clear();
+
+            DBSearchRecursive(authorBook);
+
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println("Error al buscar libros.");
+            e.printStackTrace();
+        }
+    }
+    public void DBSearchRecursive(String examplo) {
         try {
             if (resultSet.next()) {
                 String id = resultSet.getString("id");
@@ -122,72 +141,29 @@ public class BookSearchController implements Initializable {
                 String publisher = resultSet.getString("publisher");
                 String genre = resultSet.getString("genre");
                 String category = resultSet.getString("categories");
+                String URL = resultSet.getString("url");
 
-                Book book = new Book(id,title, author, genre, category, publisher, category);
+                Book book = new Book(id,title, author, publisher, genre, category, URL);
                 tb_book.getItems().add(book);
-                DBSearchTitleURecursive(titleBook); 
+                DBSearchRecursive(examplo); 
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void DBSearchAuthor(String authorBook) {
-
-        try {
-            String searchQuery = "SELECT * FROM books WHERE author LIKE ? ";
-            PreparedStatement preparedStatement = connection.prepareStatement(searchQuery);
-            preparedStatement.setString(1, "%" + authorBook + "%"); // Búsqueda parcial del título
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            // Limpia la tabla antes de agregar los resultados
-            tb_book.getItems().clear();
-
-            while (resultSet.next()) {
-
-                String title = resultSet.getString("title");
-                String author = resultSet.getString("author");
-                String publisher = resultSet.getString("publisher");
-                String genre = resultSet.getString("genre");
-                String category = resultSet.getString("categories");
-
-                // Crea un nuevo objeto Book con los datos encontrados en la base de datos
-                //Book book = new Book(title, author, genre, category, publisher, category);
-                // Agrega el libro a la tabla
-                tb_book.getItems().add(book);
-            }
-
-            preparedStatement.close();
-        } catch (SQLException e) {
-            System.out.println("Error al buscar libros.");
             e.printStackTrace();
         }
     }
 
     public void DBSearchPublisher(String publisherBook) {
 
-        try {
+         try {
             String searchQuery = "SELECT * FROM books WHERE publisher LIKE ? ";
             PreparedStatement preparedStatement = connection.prepareStatement(searchQuery);
-            preparedStatement.setString(1, "%" + publisherBook + "%"); // Búsqueda parcial del título
-            ResultSet resultSet = preparedStatement.executeQuery();
+             preparedStatement.setString(1, "%" + publisherBook + "%");
+            resultSet = preparedStatement.executeQuery();
 
             // Limpia la tabla antes de agregar los resultados
             tb_book.getItems().clear();
 
-            while (resultSet.next()) {
-
-                String title = resultSet.getString("title");
-                String author = resultSet.getString("author");
-                String publisher = resultSet.getString("publisher");
-                String genre = resultSet.getString("genre");
-                String category = resultSet.getString("categories");
-
-                // Crea un nuevo objeto Book con los datos encontrados en la base de datos
-                //Book book = new Book(title, author, genre, category, publisher, category);
-                // Agrega el libro a la tabla
-                tb_book.getItems().add(book);
-            }
+            DBSearchRecursive(publisherBook);
 
             preparedStatement.close();
         } catch (SQLException e) {
@@ -196,30 +172,20 @@ public class BookSearchController implements Initializable {
         }
     }
 
+   
+    
     public void DBSearchGenre(String genreBook) {
 
         try {
             String searchQuery = "SELECT * FROM books WHERE genre LIKE ? ";
             PreparedStatement preparedStatement = connection.prepareStatement(searchQuery);
             preparedStatement.setString(1, "%" + genreBook + "%"); // Búsqueda parcial del título
-            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet = preparedStatement.executeQuery();
 
             // Limpia la tabla antes de agregar los resultados
             tb_book.getItems().clear();
 
-            while (resultSet.next()) {
-
-                String title = resultSet.getString("title");
-                String author = resultSet.getString("author");
-                String publisher = resultSet.getString("publisher");
-                String genre = resultSet.getString("genre");
-                String category = resultSet.getString("categories");
-
-                // Crea un nuevo objeto Book con los datos encontrados en la base de datos
-                //Book book = new Book(title, author, genre, category, publisher, category);
-                // Agrega el libro a la tabla
-                tb_book.getItems().add(book);
-            }
+            DBSearchRecursive(genreBook);
 
             preparedStatement.close();
         } catch (SQLException e) {
@@ -234,24 +200,12 @@ public class BookSearchController implements Initializable {
             String searchQuery = "SELECT * FROM books WHERE categories LIKE ? ";
             PreparedStatement preparedStatement = connection.prepareStatement(searchQuery);
             preparedStatement.setString(1, "%" + categoryBook + "%"); // Búsqueda parcial del título
-            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet = preparedStatement.executeQuery();
 
             // Limpia la tabla antes de agregar los resultados
             tb_book.getItems().clear();
 
-            while (resultSet.next()) {
-
-                String title = resultSet.getString("title");
-                String author = resultSet.getString("author");
-                String publisher = resultSet.getString("publisher");
-                String genre = resultSet.getString("genre");
-                String category = resultSet.getString("categories");
-
-                // Crea un nuevo objeto Book con los datos encontrados en la base de datos
-                //Book book = new Book(title, author, genre, category, publisher, category);
-                // Agrega el libro a la tabla
-                tb_book.getItems().add(book);
-            }
+            DBSearchRecursive(categoryBook);
 
             preparedStatement.close();
         } catch (SQLException e) {
