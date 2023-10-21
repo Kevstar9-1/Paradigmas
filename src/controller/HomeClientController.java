@@ -34,6 +34,8 @@ public class HomeClientController implements Initializable {
     private TableColumn<?, ?> tc_fineLoan;
     @FXML
     private Button btn_exitSession;
+    @FXML
+    private Button btn_addReview;
 
     /**
      * Initializes the controller class.
@@ -51,6 +53,25 @@ public class HomeClientController implements Initializable {
 
             Stage stage = new Stage();
             stage.setTitle("Inicio Sesión");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            loginStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void onAddReview(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/changeStateFine.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Reseña");
             stage.setScene(new Scene(root));
             stage.show();
 

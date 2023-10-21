@@ -30,12 +30,15 @@ public class ChangeStateFineController implements Initializable {
 
     @FXML
     private TextField userName;
-    @FXML
     private TextField fineDate;
     @FXML
-    private ComboBox<?> cb_fineState;
-    @FXML
     private Button btnChangeStateFine;
+    @FXML
+    private TextField rating;
+    @FXML
+    private TextField comment;
+    @FXML
+    private TextField bookName;
 
     /**
      * Initializes the controller class.
@@ -63,10 +66,10 @@ public class ChangeStateFineController implements Initializable {
     @FXML
     private void onRegresar(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/fine.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/homeClient.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
-            stage.setTitle("Multa");
+            stage.setTitle("Inicio cliente");
             stage.setScene(new Scene(root));
             stage.show();
             Stage loginStage = (Stage) ((Node) event.getSource()).getScene().getWindow();

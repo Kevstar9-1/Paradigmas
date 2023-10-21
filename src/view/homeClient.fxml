@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -31,7 +33,7 @@
             </ImageView>
          </children>
       </Pane>
-      <TableView fx:id="tb_userLoan" layoutX="48.0" layoutY="224.0" prefHeight="359.0" prefWidth="759.0">
+      <TableView fx:id="tb_userLoan" layoutX="48.0" layoutY="224.0" prefHeight="350.0" prefWidth="759.0">
         <columns>
           <TableColumn fx:id="tc_userLoan" prefWidth="379.1999931335449" text="Préstamo" />
           <TableColumn fx:id="tc_fineLoan" prefWidth="378.39996337890625" text="Multas" />
@@ -43,5 +45,16 @@
          </font>
       </Label>
       <Button id="btn_exitSession" fx:id="btn_exitSession" layoutX="817.0" layoutY="585.0" mnemonicParsing="false" onAction="#btn_exitSession" styleClass="btn_exitSession" stylesheets="@../css/home.css" text="Cerrar sesión" />
+      <Button fx:id="btn_addReview" layoutX="676.0" layoutY="585.0" mnemonicParsing="false" onAction="#onAddReview" prefHeight="35.0" prefWidth="130.0" styleClass="btn_access" stylesheets="@../css/login.css" text="Agregar reseña">
+         <font>
+            <Font name="Georgia Bold" size="15.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>
