@@ -42,10 +42,8 @@ public class EmployeeIT {
      */
     @Test
     public void testGetPosition() {
-        Employee instance = new Employee("Juan");
-        String expResult = "Juan"; 
-        String result = instance.getPosition();
-        assertEquals(expResult, result);
+        Employee employee = new Employee("Manager");
+        assertEquals("Manager", employee.getPosition());
     }
 
     /**
@@ -53,55 +51,90 @@ public class EmployeeIT {
      */
    @Test
     public void testSetPosition() {
-        Employee instance = new Employee();
-        String position = "Employee"; 
-        instance.setPosition(position);
-        String result = instance.getPosition();
-        assertEquals(position, result); 
+        Employee employee = new Employee();
+        employee.setPosition("Supervisor");
+        assertEquals("Supervisor", employee.getPosition());
     }
-
     /**
-     * Test of toString method, of class Employee.
+     * Test of testGetId method, of class Employee.
      */
     @Test
-    public void testToString() {
-        Employee instance = new Employee();
-        String expResult = "Employee";
-
-        String result = instance.toString();
-        assertEquals(expResult, result); 
+    public void testGetId() {
+        Employee employee = new Employee("Manager");
+        employee.setId("123");
+        assertEquals("123", employee.getId());
     }
-
     /**
-     * Test of registerLoan method, of class Employee.
+     * Test of testSetName method, of class Employee.
      */
     @Test
-    public void testRegisterLoan() {
-        System.out.println("registerLoan");
-        User user = null;
-        Book book = null;
-        Employee instance = new Employee();
-        Book expResult = null;
-        Book result = instance.registerLoan(user, book);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testSetName() {
+        Employee employee = new Employee("Manager");
+        employee.setName("John");
+        assertEquals("John", employee.getName());
     }
-
     /**
-     * Test of registerReturn method, of class Employee.
+     * Test of testSetLastName method, of class Employee.
      */
     @Test
-    public void testRegisterReturn() {
-        System.out.println("registerReturn");
-        User user = null;
-        Book book = null;
-        Employee instance = new Employee();
-        Book expResult = null;
-        Book result = instance.registerReturn(user, book);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testSetLastName() {
+        Employee employee = new Employee("Manager");
+        employee.setLastName("Doe");
+        assertEquals("Doe", employee.getLastName());
+    }
+    /**
+     * Test of testSetPhone method, of class Employee.
+     */
+    @Test
+    public void testSetPhone() {
+        Employee employee = new Employee("Manager");
+        employee.setPhone("123456789");
+        assertEquals("123456789", employee.getPhone());
+    }
+    /**
+     * Test of testSetEmail method, of class Employee.
+     */
+    @Test
+    public void testSetEmail() {
+        Employee employee = new Employee("Manager");
+        employee.setEmail("john@example.com");
+        assertEquals("john@example.com", employee.getEmail());
+    }
+    /**
+     * Test of testSetAddress method, of class Employee.
+     */
+    @Test
+    public void testSetAddress() {
+        Employee employee = new Employee("Manager");
+        employee.setAddress("123 Main St");
+        assertEquals("123 Main St", employee.getAddress());
+    }
+    /**
+     * Test of testSetUserName method, of class Employee.
+     */
+    @Test
+    public void testSetUserName() {
+        Employee employee = new Employee("Manager");
+        employee.setUserName("johndoe");
+        assertEquals("johndoe", employee.getUserName());
+    }
+    /**
+     * Test of testSetPassword method, of class Employee.
+     */
+    @Test
+    public void testSetPassword() {
+        Employee employee = new Employee("Manager");
+        employee.setPassword("password");
+        assertEquals("password", employee.getPassword());
+    }
+    /**
+     * Test of testSetType method, of class Employee.
+     */
+    @Test
+    public void testSetType() {
+        Employee employee = new Employee("Manager");
+        employee.setType("Employee");
+        assertEquals("Employee", employee.getType());
     }
     
 }

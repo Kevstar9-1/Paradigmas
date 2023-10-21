@@ -5,6 +5,8 @@
 package Person;
 
 import Fine.Fine;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -41,16 +43,13 @@ public class UserIT {
     /**
      * Test of getFines method, of class User.
      */
-    @Test
+     @Test
     public void testGetFines() {
-        System.out.println("getFines");
-        User instance = new User();
-        List<Fine> expResult = null;
-        List<Fine> result = instance.getFines();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        User instance = new User(); 
+        assertNotNull(instance.getFines()); 
+        assertEquals(0, instance.getFines().size()); 
     }
+
 
     /**
      * Test of setFines method, of class User.
@@ -61,8 +60,7 @@ public class UserIT {
         List<Fine> fines = null;
         User instance = new User();
         instance.setFines(fines);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
     
 }

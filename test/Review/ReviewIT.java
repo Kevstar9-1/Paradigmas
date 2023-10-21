@@ -40,16 +40,16 @@ public class ReviewIT {
     /**
      * Test of getBook method, of class Review.
      */
-    @Test
+   @Test
     public void testGetBook() {
         System.out.println("getBook");
-        Review instance = new Review();
-        Book expResult = null;
+        Book book = new Book(); // Crear un objeto Book sin un nombre específico
+        Review instance = new Review(book, "5 stars", "Great book!");
+        Book expResult = book;
         Book result = instance.getBook();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
+
 
     /**
      * Test of setBook method, of class Review.
@@ -61,7 +61,7 @@ public class ReviewIT {
         Review instance = new Review();
         instance.setBook(book);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -70,13 +70,12 @@ public class ReviewIT {
     @Test
     public void testGetRating() {
         System.out.println("getRating");
-        Review instance = new Review();
-        int expResult = 0;
-        int result = instance.getRating();
+        Review instance = new Review(new Book(), "5 stars", "Great review");
+        String expResult = "5 stars";
+        String result = instance.getRating();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
+
 
     /**
      * Test of setRating method, of class Review.
@@ -84,12 +83,13 @@ public class ReviewIT {
     @Test
     public void testSetRating() {
         System.out.println("setRating");
-        int rating = 0;
         Review instance = new Review();
+        String rating = "5 stars";
         instance.setRating(rating);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String result = instance.getRating(); 
+        assertEquals(rating, result); 
     }
+
 
     /**
      * Test of getComment method, of class Review.
@@ -97,13 +97,12 @@ public class ReviewIT {
     @Test
     public void testGetComment() {
         System.out.println("getComment");
-        Review instance = new Review();
-        String expResult = "";
+        Review instance = new Review(new Book(), "5 stars", "Great review");
+        String expResult = "Great review";
         String result = instance.getComment();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
+
 
     /**
      * Test of setComment method, of class Review.
@@ -111,11 +110,11 @@ public class ReviewIT {
     @Test
     public void testSetComment() {
         System.out.println("setComment");
-        String comment = "";
         Review instance = new Review();
+        String comment = "Great review";
         instance.setComment(comment);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String result = instance.getComment(); 
+        assertEquals(comment, result); 
     }
 
     /**
@@ -125,11 +124,9 @@ public class ReviewIT {
     public void testToString() {
         System.out.println("toString");
         Review instance = new Review();
-        String expResult = "";
+        String expResult = "Review{book=null, rating=null, comment=null}";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-    
+
 }

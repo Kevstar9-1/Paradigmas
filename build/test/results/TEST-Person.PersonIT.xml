@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="Matebook-KevinH" name="Equipment.EquipmentIT" skipped="0" tests="9" time="0.05" timestamp="2023-10-21T08:03:09">
+<testsuite errors="0" failures="0" hostname="Matebook-KevinH" name="Person.PersonIT" skipped="0" tests="12" time="0.048" timestamp="2023-10-21T08:48:58">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="CR" />
@@ -12,7 +12,7 @@
     <property name="javac.test.sourcepath" value="C:\Users\Adria\OneDrive\Documentos\GitHub\Paradigmas\build\empty" />
     <property name="maven.defaultProjectBuilder.disableGlobalModelCache" value="true" />
     <property name="libs.spring-webmvc4.0.src" value="" />
-    <property name="javac.includes" value="Equipment/EquipmentIT.java" />
+    <property name="javac.includes" value="Person/PersonIT.java" />
     <property name="ant.core.lib" value="D:\NetBeans-12.5\netbeans\extide\ant\lib\ant.jar" />
     <property name="javadoc.windowtitle" value="" />
     <property name="libs.jsp-compilation.javadoc" value="" />
@@ -39,7 +39,7 @@
     <property name="libs.hamcrest.classpath" value="D:\NetBeans-12.5\netbeans\platform\modules\ext\hamcrest-core-1.3.jar" />
     <property name="os.name" value="Windows 11" />
     <property name="libs.jakartaee-web-api-9.0.javadoc" value="D:\NetBeans-12.5\netbeans\enterprise\docs\jakartaee9-doc-api.jar" />
-    <property name="test.class" value="Equipment.EquipmentIT" />
+    <property name="test.class" value="Person.PersonIT" />
     <property name="java.specification.maintenance.version" value="4" />
     <property name="libs.javaee-endorsed-api-7.0.maven-pom" value="" />
     <property name="ap.proc.none.internal" value="" />
@@ -61,7 +61,7 @@
     <property name="libs.spring-webmvc5.0.javadoc" value="" />
     <property name="libs.spring-framework500.classpath" value="D:\NetBeans-12.5\netbeans\platform\modules\org-apache-commons-logging.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\cglib-2.2.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-aop-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-aspects-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-beans-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-context-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-context-indexer-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-context-support-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-core-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-expression-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-instrument-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-jcl-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-jdbc-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-jms-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-messaging-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-orm-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-oxm-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-test-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-tx-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-web-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-webflux-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-webmvc-5.2.9.RELEASE.jar;D:\NetBeans-12.5\netbeans\java\modules\ext\spring-5\spring-websocket-5.2.9.RELEASE.jar" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner Equipment.EquipmentIT skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Adria\OneDrive\Documentos\GitHub\Paradigmas\build\test\results\TEST-Equipment.EquipmentIT.xml crashfile=C:\Users\Adria\OneDrive\Documentos\GitHub\Paradigmas\build\junitvmwatcher8186349189429861683.properties propsfile=C:\Users\Adria\OneDrive\Documentos\GitHub\Paradigmas\build\junit506612740788801462.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner Person.PersonIT skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Adria\OneDrive\Documentos\GitHub\Paradigmas\build\test\results\TEST-Person.PersonIT.xml crashfile=C:\Users\Adria\OneDrive\Documentos\GitHub\Paradigmas\build\junitvmwatcher4997349563661075967.properties propsfile=C:\Users\Adria\OneDrive\Documentos\GitHub\Paradigmas\build\junit3710520848445550039.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="build.sysclasspath" value="ignore" />
     <property name="manifest.encoding" value="UTF-8" />
@@ -95,7 +95,7 @@
     <property name="java.endorsed.dirs" value="C:\Users\Adria\Downloads\jdk1.8.0_361\jdk1.8.0_361\jre\lib\endorsed" />
     <property name="libs.groovy-all.src" value="" />
     <property name="libs.junit_5.src" value="D:\NetBeans-12.5\netbeans\platform\docs\junit-jupiter-api-5.6.0-sources.jar;D:\NetBeans-12.5\netbeans\platform\docs\junit-jupiter-params-5.6.0-sources.jar;D:\NetBeans-12.5\netbeans\platform\docs\junit-jupiter-engine-5.6.0-sources.jar" />
-    <property name="test.includes" value="Equipment/EquipmentIT.java" />
+    <property name="test.includes" value="Person/PersonIT.java" />
     <property name="libs.jakartaee-api-8.0.classpath" value="D:\NetBeans-12.5\netbeans\enterprise\modules\ext\jakarta.jakartaee-api-8.0.0.jar" />
     <property name="netbeans.dynamic.classpath" value="D:\NetBeans-12.5\netbeans\platform\core\asm-9.2.jar;D:\NetBeans-12.5\netbeans\platform\core\asm-commons-9.2.jar;D:\NetBeans-12.5\netbeans\platform\core\asm-tree-9.2.jar;D:\NetBeans-12.5\netbeans\platform\core\core-base.jar;D:\NetBeans-12.5\netbeans\platform\core\core.jar;D:\NetBeans-12.5\netbeans\platform\core\org-netbeans-libs-asm.jar;D:\NetBeans-12.5\netbeans\platform\core\org-openide-filesystems-compat8.jar;D:\NetBeans-12.5\netbeans\platform\core\org-openide-filesystems.jar;D:\NetBeans-12.5\netbeans\nb\core\org-netbeans-upgrader.jar;D:\NetBeans-12.5\netbeans\nb\core\locale\core_nb.jar" />
     <property name="jnlp.enabled" value="false" />
@@ -117,7 +117,7 @@
     <property name="javac.debug" value="true" />
     <property name="javadoc.splitindex" value="true" />
     <property name="file.separator" value="\" />
-    <property name="javac.includesfile.binary" value="C:\Users\Adria\OneDrive\Documentos\GitHub\Paradigmas\null1463662567" />
+    <property name="javac.includesfile.binary" value="C:\Users\Adria\OneDrive\Documentos\GitHub\Paradigmas\null1632332477" />
     <property name="libs.junit_4.maven-pom" value="" />
     <property name="mkdist.disabled" value="false" />
     <property name="javac.test.processorpath" value="C:\Users\Adria\Downloads\jdk1.8.0_361\jdk1.8.0_361/jre/lib/javaws.jar:C:\Users\Adria\Downloads\jdk1.8.0_361\jdk1.8.0_361/jre/lib/deploy.jar:C:\Users\Adria\Downloads\jdk1.8.0_361\jdk1.8.0_361/jre/lib/plugin.jar:C:\Users\Adria\Downloads\mysql-connector-java-8.0.25.jar:build/classes:D:\NetBeans-12.5\netbeans\platform\modules\ext\junit-4.13.2.jar:D:\NetBeans-12.5\netbeans\platform\modules\ext\hamcrest-core-1.3.jar" />
@@ -130,7 +130,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD" />
     <property name="libs.jaxb.javadoc" value="D:\NetBeans-12.5\netbeans\ide\docs\jaxb-api-doc.jar" />
     <property name="libs.struts.classpath" value="D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\antlr-2.7.2.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\bsf-2.3.0.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\commons-beanutils-1.8.0.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\commons-chain-1.2.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\commons-digester-1.8.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\commons-fileupload-1.1.1.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\commons-io-1.1.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\commons-logging-1.0.4.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\commons-validator-1.3.1.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\jstl-1.0.2.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\oro-2.0.8.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\standard-1.0.6.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\struts-core-1.3.10.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\struts-el-1.3.10.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\struts-extras-1.3.10.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\struts-faces-1.3.10.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\struts-mailreader-dao-1.3.10.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\struts-scripting-1.3.10.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\struts-taglib-1.3.10.jar;D:\NetBeans-12.5\netbeans\enterprise\modules\ext\struts\struts-tiles-1.3.10.jar" />
-    <property name="javac.includes.binary" value="C:\Users\Adria\OneDrive\Documentos\GitHub\Paradigmas\build\test\classes\Equipment\EquipmentIT.class" />
+    <property name="javac.includes.binary" value="C:\Users\Adria\OneDrive\Documentos\GitHub\Paradigmas\build\test\classes\Person\PersonIT.class" />
     <property name="ant.home" value="D:\NetBeans-12.5\netbeans\extide\ant" />
     <property name="libs.junit_4.src" value="D:\NetBeans-12.5\netbeans\platform\docs\junit-4.13.2-sources.jar" />
     <property name="javafx.run.height" value="600" />
@@ -462,24 +462,18 @@
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="D:\NetBeans-12.5\netbeans\enterprise\docs\javaee-doc-api.jar" />
   </properties>
-  <testcase classname="Equipment.EquipmentIT" name="testToString" time="0.003" />
-  <testcase classname="Equipment.EquipmentIT" name="testGetName" time="0.0" />
-  <testcase classname="Equipment.EquipmentIT" name="testGetType" time="0.0" />
-  <testcase classname="Equipment.EquipmentIT" name="testIsAvailable" time="0.0" />
-  <testcase classname="Equipment.EquipmentIT" name="testSetQuantity" time="0.0" />
-  <testcase classname="Equipment.EquipmentIT" name="testGetQuantity" time="0.001" />
-  <testcase classname="Equipment.EquipmentIT" name="testSetName" time="0.0" />
-  <testcase classname="Equipment.EquipmentIT" name="testSetType" time="0.0" />
-  <testcase classname="Equipment.EquipmentIT" name="testSetAvailable" time="0.0" />
-  <system-out><![CDATA[toString
-getName
-getType
-isAvailable
-setQuantity
-getQuantity
-setName
-setType
-setAvailable
-]]></system-out>
+  <testcase classname="Person.PersonIT" name="testGetPassword" time="0.003" />
+  <testcase classname="Person.PersonIT" name="testGetEmail" time="0.0" />
+  <testcase classname="Person.PersonIT" name="testGetPhone" time="0.0" />
+  <testcase classname="Person.PersonIT" name="testGetId" time="0.0" />
+  <testcase classname="Person.PersonIT" name="testSetId" time="0.0" />
+  <testcase classname="Person.PersonIT" name="testToString" time="0.0" />
+  <testcase classname="Person.PersonIT" name="testGetAddress" time="0.0" />
+  <testcase classname="Person.PersonIT" name="testGetName" time="0.0" />
+  <testcase classname="Person.PersonIT" name="testGetType" time="0.0" />
+  <testcase classname="Person.PersonIT" name="testGetLastName" time="0.001" />
+  <testcase classname="Person.PersonIT" name="testGetUserName" time="0.0" />
+  <testcase classname="Person.PersonIT" name="testSetName" time="0.0" />
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

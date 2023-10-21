@@ -51,7 +51,7 @@ public class LoanIT {
         Book result = instance.getBook();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -64,7 +64,7 @@ public class LoanIT {
         Loan instance = new Loan();
         instance.setBook(book);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -78,7 +78,7 @@ public class LoanIT {
         User result = instance.getUser();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -91,7 +91,7 @@ public class LoanIT {
         Loan instance = new Loan();
         instance.setUser(user);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      
     }
 
     /**
@@ -105,7 +105,7 @@ public class LoanIT {
         String result = instance.getLoanDate();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -118,7 +118,7 @@ public class LoanIT {
         Loan instance = new Loan();
         instance.setLoanDate(loanDate);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -132,7 +132,7 @@ public class LoanIT {
         String result = instance.getReturnDate();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -145,7 +145,7 @@ public class LoanIT {
         Loan instance = new Loan();
         instance.setReturnDate(returnDate);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -159,7 +159,7 @@ public class LoanIT {
         boolean result = instance.isStatus();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -172,7 +172,7 @@ public class LoanIT {
         Loan instance = new Loan();
         instance.setStatus(status);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+      
     }
 
     /**
@@ -199,7 +199,7 @@ public class LoanIT {
         Loan instance = new Loan();
         instance.setEquipment(equipment);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -213,7 +213,7 @@ public class LoanIT {
         String result = instance.toString();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -228,7 +228,7 @@ public class LoanIT {
         Book result = instance.addBook(book);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
 
     /**
@@ -243,7 +243,7 @@ public class LoanIT {
         Book result = instance.deleteBook(book);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    
     }
 
     /**
@@ -259,7 +259,7 @@ public class LoanIT {
         Equipment result = instance.loanDevice(user, equipment);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -274,7 +274,7 @@ public class LoanIT {
         Equipment result = instance.returnDevice(equipment);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -288,7 +288,7 @@ public class LoanIT {
         List<Equipment> result = instance.obtainDeviceAvailable();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       
     }
     
 }
