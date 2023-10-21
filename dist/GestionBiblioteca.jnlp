@@ -8,8 +8,8 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="GestionBiblioteca.jar" size="90695" download="eager" />
-    <jar href="lib\mysql-connector-java-8.0.25.jar" size="2428320" download="eager" />
+    <jar href="GestionBiblioteca.jar" size="95727" download="eager" />
+    <jar href="lib\mysql-connector-java-8.0.29.jar" size="2519547" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="gestionbiblioteca.GestionBiblioteca"  name="GestionBiblioteca" />
   <update check="always"/>

@@ -4,9 +4,21 @@
  */
 package controller;
 
+
+import DB.conexionDB;
+import Fine.Fine;
+import Person.Person;
+import Person.User;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +31,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import loan.Loan;
 
 /**
  * FXML Controller class
@@ -45,9 +58,17 @@ public class AddFineController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+    ObservableList<User> users = FXCollections.observableArrayList();
+    Fine fine;
+    conexionDB DB_Connection = conexionDB.getconnector();
+    Connection connection = DB_Connection.getConn();
+    ResultSet resultSet;
+    User searhUser;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        fillListUser();
     }
 
     @FXML
@@ -63,7 +84,8 @@ public class AddFineController implements Initializable {
                 || paymentDateText.isEmpty() || dueDateText.isEmpty() || descriptionFineText.isEmpty()) {
             showAlert("Error de crear", "Por favor ingrese todos los datos.");
         } else {
-
+            fillListUser();
+            addFine();
         }
 
         name.clear();
@@ -98,4 +120,68 @@ public class AddFineController implements Initializable {
         alert.showAndWait();
     }
 
+    public void addFine(){
+        
+        searhUser = users.filtered(user -> user.getId().equals(name.getText())).stream().findFirst().orElse(null);
+        fine = new Fine(amountFine.getText(), searhUser, fineDate.getText(), paymentDate.getText(),
+        dueDate.getText(),descriptionFine.getText());
+
+
+        int rows = 0;
+        try {
+            String insertQuery = "INSERT INTO fines (amount, person_id, fineDate, "
+                    + "paymentDate, dueDate, comment)"
+                    + "VALUES (?, ?, ?, ?, ?, ?)";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
+            preparedStatement.setString(1, fine.getAmount());
+            preparedStatement.setString(2, searhUser.getId());
+            preparedStatement.setString(3, fine.getFineDate());
+            preparedStatement.setString(4, fine.getPaymentDate());
+            preparedStatement.setString(5, fine.getDueDate());
+            preparedStatement.setString(6, fine.getComment());
+            rows = preparedStatement.executeUpdate();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println("Error al insertar datos.");
+            e.printStackTrace();
+        }
+    }
+    
+    public void fillListUser() {
+        try {
+
+            // Consulta SQL
+            Statement statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM persons");
+
+            // Llama a la función recursiva
+            fillUsersListRecursive();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void fillUsersListRecursive() {
+        try {
+            if (resultSet.next()) {
+            String id = resultSet.getString("id"); 
+            String name = resultSet.getString("name"); 
+            String lastName = resultSet.getString("lastName"); 
+            String phone = resultSet.getString("phone"); 
+            String email = resultSet.getString("email"); 
+            String address = resultSet.getString("address"); 
+            String userName = resultSet.getString("userName"); 
+            String password = resultSet.getString("pass"); 
+            String type = resultSet.getString("type"); 
+
+            User user = new User(id, name, lastName, phone, email, address, userName, password, type);
+                users.add(user);
+                fillUsersListRecursive(); // Llamada recursiva para procesar el siguiente resultado
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -36,18 +36,15 @@
                               <Font name="Georgia Bold" size="13.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="tf_userName" promptText="Nombre de usuario">
+                        <TextField fx:id="tf_userName" promptText="Cedula de usuario">
                            <font>
                               <Font name="Georgia" size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="tf_equipmentName" promptText="Nombre del equipo">
-                           <font>
-                              <Font name="Georgia" size="12.0" />
-                           </font>
-                        </TextField>
-                        <ComboBox fx:id="cb_type" prefWidth="150.0" promptText="Tipo" />
-                        <ComboBox fx:id="cb_another" prefWidth="150.0" />
+                        <TextField fx:id="tf_dateLoan" promptText="Fecha de préstamo dd/mm/aaaa" />
+                        <TextField fx:id="tf_returnDateLoan" promptText="Fecha de devolución dd/mm/aaaa" />
+                        <ComboBox fx:id="cb_equip" prefWidth="150.0" promptText="Nombre del Equipo" />
+                        <ComboBox fx:id="cb_another" prefWidth="150.0" promptText="Cantidad" />
                      </children>
                      <HBox.margin>
                         <Insets left="5.0" />

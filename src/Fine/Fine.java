@@ -15,11 +15,11 @@ import java.util.Date;
 
 public class Fine {
 
-    private int amount;
+    private String amount;
     private User user;
-    private Date fineDate;
-    private Date paymentDate;
-    private Date dueDate;
+    private String fineDate;
+    private String paymentDate;
+    private String dueDate;
     private String comment;
 
     public double applyFine(User user, Book book, double amount) {
@@ -29,7 +29,7 @@ public class Fine {
     public Fine() {
     }
 
-    public Fine(int amount, User user, Date fineDate, Date paymentDate, Date dueDate, String comment) {
+    public Fine(String amount, User user, String fineDate, String paymentDate, String dueDate, String comment) {
         this.amount = amount;
         this.user = user;
         this.fineDate = fineDate;
@@ -38,11 +38,11 @@ public class Fine {
         this.comment = comment;
     }
 
-    public int getAmount() {
+    public String getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 
@@ -54,29 +54,31 @@ public class Fine {
         this.user = user;
     }
 
-    public Date getFineDate() {
+    public String getFineDate() {
         return fineDate;
     }
 
-    public void setFineDate(Date fineDate) {
+    public void setFineDate(String fineDate) {
         this.fineDate = fineDate;
     }
 
-    public Date getPaymentDate() {
+    public String getPaymentDate() {
         return paymentDate;
     }
 
-    public void setPaymentDate(Date paymentDate) {
+    public void setPaymentDate(String paymentDate) {
         this.paymentDate = paymentDate;
     }
 
-    public Date getDueDate() {
+    public String getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
+
+    
 
     public String getComment() {
         return comment;

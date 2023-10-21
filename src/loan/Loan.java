@@ -21,8 +21,8 @@ public class Loan implements BookInterface, EquipmentInterface {
 
     private Book book;
     private User user;
-    private Date loanDate;
-    private Date returnDate;
+    private String loanDate;
+    private String returnDate;
     private boolean status;
     private Equipment equipment;
 
@@ -38,14 +38,18 @@ public class Loan implements BookInterface, EquipmentInterface {
      * @param status
      * @param equipment 
      */
-    public Loan(Book book, User user, Date loanDate, Date returnDate, boolean status, Equipment equipment) {
+    
+    
+    
+
+    public Loan( User user, String loanDate, String returnDate) {
         this.book = book;
         this.user = user;
         this.loanDate = loanDate;
         this.returnDate = returnDate;
         this.status = status;
-        this.equipment = equipment;
     }
+
 
     public Book getBook() {
         return book;
@@ -71,29 +75,22 @@ public class Loan implements BookInterface, EquipmentInterface {
         this.user = user;
     }
 
-    public Date getLoanDate() {
+    public String getLoanDate() {
         return loanDate;
     }
 
-    /**
-     * 
-     * @param loanDate 
-     */
-    public void setLoanDate(Date loanDate) {
+    public void setLoanDate(String loanDate) {
         this.loanDate = loanDate;
     }
 
-    public Date getReturnDate() {
+    public String getReturnDate() {
         return returnDate;
     }
 
-    /**
-     * 
-     * @param returnDate 
-     */
-    public void setReturnDate(Date returnDate) {
+    public void setReturnDate(String returnDate) {
         this.returnDate = returnDate;
     }
+
 
     public boolean isStatus() {
         return status;
