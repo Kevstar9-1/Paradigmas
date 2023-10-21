@@ -4,6 +4,7 @@
  */
 package controller;
 
+import Person.User;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,7 +28,7 @@ import javafx.stage.Stage;
 public class HomeClientController implements Initializable {
 
     @FXML
-    private TableView<?> tb_userLoan;
+    private TableView<User> tb_userLoan;
     @FXML
     private TableColumn<?, ?> tc_userLoan;
     @FXML

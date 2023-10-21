@@ -15,13 +15,13 @@ import Book.Book;
 public class Review {
 
     private Book book;
-    private int rating;
+    private String rating;
     private String comment;
 
     public Review() {
     }
 
-    public Review(Book book, int rating, String comment) {
+    public Review(Book book, String rating, String comment) {
         this.book = book;
         this.rating = rating;
         this.comment = comment;
@@ -35,13 +35,15 @@ public class Review {
         this.book = book;
     }
 
-    public int getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
+
+
 
     public String getComment() {
         return comment;
