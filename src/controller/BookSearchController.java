@@ -80,7 +80,7 @@ public class BookSearchController implements Initializable {
     Book book;
     conexionDB DB_Connection = conexionDB.getconnector();
     Connection connection = DB_Connection.getConn();
-
+    ResultSet resultSet;
     /**
      * Initializes the controller class.
      */
@@ -98,29 +98,36 @@ public class BookSearchController implements Initializable {
         try {
             String searchQuery = "SELECT * FROM books WHERE title LIKE ? ";
             PreparedStatement preparedStatement = connection.prepareStatement(searchQuery);
-            preparedStatement.setString(1, "%" + titleBook + "%"); // Búsqueda parcial del título
-            ResultSet resultSet = preparedStatement.executeQuery();
+             preparedStatement.setString(1, "%" + titleBook + "%");
+            resultSet = preparedStatement.executeQuery();
 
             // Limpia la tabla antes de agregar los resultados
             tb_book.getItems().clear();
 
-            while (resultSet.next()) {
+            DBSearchTitleURecursive(titleBook);
 
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println("Error al buscar libros.");
+            e.printStackTrace();
+        }
+    }
+    
+    public void DBSearchTitleURecursive(String titleBook) {
+        try {
+            if (resultSet.next()) {
+                String id = resultSet.getString("id");
                 String title = resultSet.getString("title");
                 String author = resultSet.getString("author");
                 String publisher = resultSet.getString("publisher");
                 String genre = resultSet.getString("genre");
                 String category = resultSet.getString("categories");
 
-                // Crea un nuevo objeto Book con los datos encontrados en la base de datos
-                Book book = new Book(title, author, genre, category, publisher, category);
-                // Agrega el libro a la tabla
+                Book book = new Book(id,title, author, genre, category, publisher, category);
                 tb_book.getItems().add(book);
+                DBSearchTitleURecursive(titleBook); 
             }
-
-            preparedStatement.close();
         } catch (SQLException e) {
-            System.out.println("Error al buscar libros.");
             e.printStackTrace();
         }
     }
@@ -145,7 +152,7 @@ public class BookSearchController implements Initializable {
                 String category = resultSet.getString("categories");
 
                 // Crea un nuevo objeto Book con los datos encontrados en la base de datos
-                Book book = new Book(title, author, genre, category, publisher, category);
+                //Book book = new Book(title, author, genre, category, publisher, category);
                 // Agrega el libro a la tabla
                 tb_book.getItems().add(book);
             }
@@ -177,7 +184,7 @@ public class BookSearchController implements Initializable {
                 String category = resultSet.getString("categories");
 
                 // Crea un nuevo objeto Book con los datos encontrados en la base de datos
-                Book book = new Book(title, author, genre, category, publisher, category);
+                //Book book = new Book(title, author, genre, category, publisher, category);
                 // Agrega el libro a la tabla
                 tb_book.getItems().add(book);
             }
@@ -209,7 +216,7 @@ public class BookSearchController implements Initializable {
                 String category = resultSet.getString("categories");
 
                 // Crea un nuevo objeto Book con los datos encontrados en la base de datos
-                Book book = new Book(title, author, genre, category, publisher, category);
+                //Book book = new Book(title, author, genre, category, publisher, category);
                 // Agrega el libro a la tabla
                 tb_book.getItems().add(book);
             }
@@ -241,7 +248,7 @@ public class BookSearchController implements Initializable {
                 String category = resultSet.getString("categories");
 
                 // Crea un nuevo objeto Book con los datos encontrados en la base de datos
-                Book book = new Book(title, author, genre, category, publisher, category);
+                //Book book = new Book(title, author, genre, category, publisher, category);
                 // Agrega el libro a la tabla
                 tb_book.getItems().add(book);
             }

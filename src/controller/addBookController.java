@@ -50,6 +50,7 @@ public class addBookController implements Initializable {
 
     conexionDB DB_Connection = conexionDB.getconnector();
     Connection connection = DB_Connection.getConn();
+    String id;
 
     private Boolean isInEditMode = Boolean.FALSE;
 
@@ -96,7 +97,7 @@ public class addBookController implements Initializable {
     }
 
     public void DBSaveBook() {
-        book = new Book(bookTitle.getText(), authorBook.getText(), genreBook.getText(), categorieBook.getText(),
+        book = new Book( id ,bookTitle.getText(), authorBook.getText(), genreBook.getText(), categorieBook.getText(),
                 publisherBook.getText(), urlBook.getText());
         int rows = 0;
 

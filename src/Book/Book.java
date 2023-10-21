@@ -13,6 +13,7 @@ import java.util.List;
 
 public class Book{
 
+    private String id;
     private String title;
     private String author;
     private String genre;
@@ -24,7 +25,8 @@ public class Book{
     public Book() {
     }
 
-    public Book(String title, String author, String genre, String categories, String publisher, String url) {
+    public Book(String id,String title, String author, String genre, String categories, String publisher, String url) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.genre = genre;
@@ -34,6 +36,16 @@ public class Book{
         this.url = url;
 
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    
 
     public String getGenre() {
         return genre;

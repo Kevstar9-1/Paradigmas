@@ -45,11 +45,6 @@
                               <Font name="Georgia" size="12.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="tf_authorBookLoan" promptText="Autor">
-                           <font>
-                              <Font name="Georgia" size="12.0" />
-                           </font>
-                        </TextField>
                         <TextField fx:id="tf_dateLoan" promptText="Fecha de préstamo dd/mm/aaaa">
                            <font>
                               <Font name="Georgia" size="12.0" />

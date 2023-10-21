@@ -145,10 +145,7 @@ public class LoanEquipmentController implements Initializable {
 
             ResultSet personResultSet = personPreparedStatement.executeQuery();
 
-            // Verificar si existe el nombre de usuario en la tabla "personas"
             if (personResultSet.next()) {
-
-                // El equipo existe en la tabla "equipos"
                 return true;
 
             }
