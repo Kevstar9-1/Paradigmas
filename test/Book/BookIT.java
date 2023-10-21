@@ -42,11 +42,13 @@ public class BookIT {
     @Test
     public void testGetGenre() {
         System.out.println("getGenre");
+        String expectedGenre = "Fiction";
         Book instance = new Book();
-        String expResult = "";
+        instance.setGenre(expectedGenre);
         String result = instance.getGenre();
-        assertEquals(expResult, result);
+        assertEquals(expectedGenre, result);
     }
+
 
     /**
      * Test of setGenre method, of class Book.
@@ -54,10 +56,7 @@ public class BookIT {
     @Test
     public void testSetGenre() {
         Book book = new Book();
-
         book.setGenre("Paperback");
-       
-
         assertEquals("Paperback", book.getGenre());
      
     }
@@ -69,12 +68,12 @@ public class BookIT {
     public void testIsAvailable() {
         System.out.println("isAvailable");
         Book instance = new Book();
+        instance.setAvailable(false);
         boolean expResult = false;
         boolean result = instance.isAvailable();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
+
 
     /**
      * Test of setAvailable method, of class Book.
@@ -82,12 +81,13 @@ public class BookIT {
     @Test
     public void testSetAvailable() {
         System.out.println("setAvailable");
-        boolean available = false;
+        boolean available = false; 
         Book instance = new Book();
         instance.setAvailable(available);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        boolean result = instance.isAvailable(); 
+        assertEquals(available, result);
     }
+
 
     /**
      * Test of getCategories method, of class Book.
@@ -96,12 +96,13 @@ public class BookIT {
     public void testGetCategories() {
         System.out.println("getCategories");
         Book instance = new Book();
-        String expResult = "";
+
+        instance.setCategories("Fiction, Mystery");
+        String expectedCategories = "Fiction, Mystery"; // Define las categorías esperadas
         String result = instance.getCategories();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expectedCategories, result);
     }
+
 
     /**
      * Test of setCategories method, of class Book.
@@ -109,12 +110,13 @@ public class BookIT {
     @Test
     public void testSetCategories() {
         System.out.println("setCategories");
-        String categories = "";
+        String categories = "Fiction, Mystery, Thriller";
         Book instance = new Book();
         instance.setCategories(categories);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String result = instance.getCategories();
+        assertEquals(categories, result);
     }
+
 
     /**
      * Test of getPublisher method, of class Book.
@@ -123,25 +125,26 @@ public class BookIT {
     public void testGetPublisher() {
         System.out.println("getPublisher");
         Book instance = new Book();
-        String expResult = "";
-        String result = instance.getPublisher();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
+        String expectedPublisher = "Bantom";
+        instance.setPublisher(expectedPublisher);
+
+        String result = instance.getPublisher();
+        assertEquals(expectedPublisher, result);
+    }
     /**
      * Test of setPublisher method, of class Book.
      */
     @Test
     public void testSetPublisher() {
-        System.out.println("setPublisher");
-        String publisher = "";
-        Book instance = new Book();
-        instance.setPublisher(publisher);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    System.out.println("setPublisher");
+    String publisher = "Example Publisher"; 
+    Book instance = new Book();
+    instance.setPublisher(publisher);
+    String result = instance.getPublisher();
+    assertEquals(publisher, result);
+}
+
 
     /**
      * Test of getUrl method, of class Book.
@@ -150,12 +153,12 @@ public class BookIT {
     public void testGetUrl() {
         System.out.println("getUrl");
         Book instance = new Book();
-        String expResult = "";
+        String expectedUrl = "http://example.com/book123"; 
+        instance.setUrl(expectedUrl);
         String result = instance.getUrl();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expectedUrl, result);
     }
+
 
     /**
      * Test of setUrl method, of class Book.
@@ -163,12 +166,13 @@ public class BookIT {
     @Test
     public void testSetUrl() {
         System.out.println("setUrl");
-        String url = "";
+        String url = "http://example.com/book123";
         Book instance = new Book();
         instance.setUrl(url);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String result = instance.getUrl();
+        assertEquals(url, result);
     }
+
 
     /**
      * Test of getTitle method, of class Book.
@@ -177,12 +181,12 @@ public class BookIT {
     public void testGetTitle() {
         System.out.println("getTitle");
         Book instance = new Book();
-        String expResult = "";
+        String expectedTitle = "Fuego y sangre";
+        instance.setTitle(expectedTitle);
         String result = instance.getTitle();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expectedTitle, result);
     }
+
 
     /**
      * Test of setTitle method, of class Book.
@@ -190,12 +194,13 @@ public class BookIT {
     @Test
     public void testSetTitle() {
         System.out.println("setTitle");
-        String title = "";
+        String title = "Fuego y sangre";
         Book instance = new Book();
         instance.setTitle(title);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String result = instance.getTitle();
+        assertEquals(title, result);
     }
+
 
     /**
      * Test of getAuthor method, of class Book.
@@ -204,38 +209,35 @@ public class BookIT {
     public void testGetAuthor() {
         System.out.println("getAuthor");
         Book instance = new Book();
-        String expResult = "";
+        String expectedAuthor = "John Doe"; 
+        instance.setAuthor(expectedAuthor);
         String result = instance.getAuthor();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expectedAuthor, result);
     }
 
-    /**
-     * Test of setAuthor method, of class Book.
-     */
     @Test
     public void testSetAuthor() {
         System.out.println("setAuthor");
-        String author = "";
+        String author = "Jane Smith"; 
         Book instance = new Book();
         instance.setAuthor(author);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String result = instance.getAuthor(); // Suponiendo que la clase Book tiene un método getAuthor para obtener el autor
+        assertEquals(author, result);
     }
-
-    /**
-     * Test of toString method, of class Book.
-     */
     @Test
     public void testToString() {
         System.out.println("toString");
         Book instance = new Book();
-        String expResult = "";
+
+        instance.setTitle("Example Book Title");
+        instance.setAuthor("John Doe");
+        instance.setPublisher("Example Publisher");
+        instance.setCategories("Fiction, Mystery");
+        instance.setUrl("http://example.com/book123");
+        
+        String expectedString = "Book{title=Example Book Title, author=John Doe, genre=null, available=false, categories=Fiction, Mystery, url=http://example.com/book123, publisher=Example Publisher}";
         String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expectedString, result);
     }
-    
+
 }
